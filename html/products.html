@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنتجات - Motor Fix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favIcon/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="../favicon-16x16.png" type="image/png" sizes="16x16">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1><a href="../index.html">Motor Fix</a></h1>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="../index.html">الرئيسية</a></li>
+                    <li><a href="categories.html">التصنيفات</a></li>
+                    <li><a href="products.html" class="active">المنتجات</a></li>
+                    <li><a href="about.html">عن الشركة</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                    <li class="cart-icon">
+                        <a href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products-section section-padding">
+        <div class="container">
+            <div class="products-header">
+                <h1>جميع المنتجات</h1>
+                <p>اختر من بين مجموعة واسعة من قطع غيار السيارات</p>
+            </div>
+            
+            <div class="products-filter">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="filter-controls">
+                    <select id="categoryFilter">
+                        <option value="">جميع التصنيفات</option>
+                        <option value="زيوت">زيوت</option>
+                        <option value="بطاريات">بطاريات</option>
+                        <option value="إطارات">إطارات</option>
+                        <option value="فلاتر">فلاتر</option>
+                        <option value="محرك">محرك</option>
+                        <option value="كهرباء">كهرباء</option>
+                    </select>
+                    
+                    <select id="priceFilter">
+                        <option value="">جميع الأسعار</option>
+                        <option value="0-100">حتى 100 جنيه</option>
+                        <option value="100-300">100 - 300 جنيه</option>
+                        <option value="300-500">300 - 500 جنيه</option>
+                        <option value="500-1000">500 - 1000 جنيه</option>
+                        <option value="1000+">أكثر من 1000 جنيه</option>
+                    </select>
+                    
+                    <select id="sortFilter">
+                        <option value="default">الترتيب الافتراضي</option>
+                        <option value="price-low">السعر: من الأقل للأعلى</option>
+                        <option value="price-high">السعر: من الأعلى للأقل</option>
+                        <option value="name">الاسم: أ-ي</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-container">
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded by JavaScript -->
+                </div>
+                
+                <div class="products-pagination" id="pagination">
+                    <!-- Pagination will be loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Motor Fix</h3>
+                <p>متجرك الموثوق لقطع غيار السيارات الأصلية بأسعار تنافسية وخدمة مميزة في مصر.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="categories.html">التصنيفات</a></li>
+                    <li><a href="products.html">المنتجات</a></li>
+                    <li><a href="about.html">عن الشركة</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>سياسات</h4>
+                <ul>
+                    <li><a href="contact.html">سياسة الإرجاع</a></li>
+                    <li><a href="contact.html" class="active">الشروط والأحكام</a></li>
+                    <li><a href="contact.html">سياسة الخصوصية</a></li>
+                    <li><a href="contact.html">الدعم الفني</a></li>
+                    <li><a href="contact.html">الأسئلة الشائعة</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>اتصل بنا</h4>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span> كفرالشيخ - مصر </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>01013706142</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>abdelkader@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; <span class="current-year">2026</span> Motor Fix</p>
+            <p class="developer-credit">
+                تطوير 
+                <a href="https://api.whatsapp.com/send?phone=201013706142" target="_blank" class="developer-link">
+                    Abdelkader Mohamed &
+                </a> 
+                <a href="https://api.whatsapp.com/send?phone=201010942959" target="_blank" class="developer-link">
+                    Ahmed Nada
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+    <script src="../js/products.js"></script>
+</body>
+</html>

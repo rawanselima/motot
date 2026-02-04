@@ -1,17 +1,16 @@
 // Products data
 const allProducts = [
-    { id: 1, name: "زيت محرك سينتيك 5W-30", price: 85, category: "زيوت", stock: 50, rating: 4.5 },
-    { id: 2, name: "بطارية سيارة 60 أمبير", price: 320, category: "بطاريات", stock: 30, rating: 4.3 },
-    { id: 3, name: "إطار هانكوك 205/55R16", price: 280, category: "إطارات", stock: 25, rating: 4.7 },
-    { id: 4, name: "فلتر هواء تويوتا", price: 45, category: "فلاتر", stock: 100, rating: 4.2 },
-    { id: 5, name: "زيت ناقل الحركة", price: 120, category: "زيوت", stock: 40, rating: 4.4 },
-    { id: 6, name: "بطارية 70 أمبير", price: 380, category: "بطاريات", stock: 20, rating: 4.6 },
-    { id: 7, name: "إطار ميشلان 215/60R17", price: 350, category: "إطارات", stock: 15, rating: 4.8 },
-    { id: 8, name: "فلتر زيت", price: 35, category: "فلاتر", stock: 80, rating: 4.1 },
-    { id: 9, name: "شمعة احتراق", price: 25, category: "محرك", stock: 200, rating: 4.0 },
-    { id: 10, name: "سير المحرك", price: 90, category: "محرك", stock: 45, rating: 4.3 },
-    { id: 11, name: "دينامو", price: 420, category: "كهرباء", stock: 12, rating: 4.5 },
-    { id: 12, name: "مساعدات أمامية", price: 180, category: "محرك", stock: 18, rating: 4.2 },
+    { id: 1,img:"/assets/images/car-ford-3-removebg-preview.png", name: "زيت محرك سينتيك 5W-30", price: 85, category: "زيوت", stock: 50, rating: 4.5 },
+    { id: 2,img:"/assets/images/car-ford-2-removebg-preview.png", name: "بطارية سيارة 60 أمبير", price: 320, category: "بطاريات", stock: 30, rating: 4.3 },
+    { id: 3,img:"/assets/images/car-ford-2-removebg-preview.png", name: "إطار هانكوك 205/55R16", price: 280, category: "إطارات", stock: 25, rating: 4.7 },
+    { id: 4,img:"/assets/images/car-hyundai-3-removebg-preview.png", name: "فلتر هواء تويوتا", price: 45, category: "فلاتر", stock: 100, rating: 4.2 },
+    { id: 5, img:"/assets/images/car-kia-3-removebg-preview.png",name: "زيت ناقل الحركة", price: 120, category: "زيوت", stock: 40, rating: 4.4 },
+    { id: 6, img:"/assets/images/car-kia-3-removebg-preview.png", name: "بطارية 70 أمبير", price: 380, category: "بطاريات", stock: 20, rating: 4.6 },
+    { id: 8, img:"/assets/images/car-kia-3-removebg-preview.png",name: "فلتر زيت", price: 35, category: "فلاتر", stock: 80, rating: 4.1 },
+    { id: 9, img:"/assets/images/car-kia-3-removebg-preview.png", name: "شمعة احتراق", price: 25, category: "محرك", stock: 200, rating: 4.0 },
+    { id: 10, img:"/assets/images/car-kia-3-removebg-preview.png", name: "سير المحرك", price: 90, category: "محرك", stock: 45, rating: 4.3 },
+    { id: 11, img:"/assets/images/car-kia-3-removebg-preview.png", name: "دينامو", price: 420, category: "كهرباء", stock: 12, rating: 4.5 },
+    { id: 12,  img:"/assets/images/car-kia-3-removebg-preview.png",name: "مساعدات أمامية", price: 180, category: "محرك", stock: 18, rating: 4.2 },
 ];
 
 // Pagination
@@ -79,7 +78,7 @@ function displayProducts(products) {
     container.innerHTML = products.map(product => `
         <div class="product-card">
             <div class="product-image">
-                <img src="https://via.placeholder.com/300x200/333/fff?text=${encodeURIComponent(product.name)}" alt="${product.name}">
+                <img src=${product.img} alt="${product.name}">
             </div>
             <div class="product-info">
                 <span class="product-category">${product.category}</span>
@@ -224,27 +223,45 @@ function displayPagination(totalProducts, currentPage) {
 }
 
 // Add to cart
-function addToCart(productId) {
-    const product = allProducts.find(p => p.id === productId);
-    if (!product) return;
-    
+function addToCart(productId, quantity = 1) {
+    const product = getProductById(productId);
+    if (!product) {
+        showError('المنتج غير متوفر');
+        return;
+    }
+
     const existingItem = cart.find(item => item.id === productId);
-    
+    const currentQuantityInCart = existingItem ? existingItem.quantity : 0;
+
+    // ❌ منع تجاوز المخزون
+    if (currentQuantityInCart + quantity > product.stock) {
+        showError(`الكمية المتاحة فقط ${product.stock} قطعة`);
+        return;
+    }
+
+    // ✅ إضافة للسلة
     if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += quantity;
     } else {
         cart.push({
             id: product.id,
             name: product.name,
             price: product.price,
-            image: `https://via.placeholder.com/300x200/333/fff?text=${encodeURIComponent(product.name)}`,
-            quantity: 1
+            image: product.image,
+            quantity: quantity
         });
     }
-    
+
+    // ✅ تحديث المخزون في الصفحة
+    const remainingStock = product.stock - (currentQuantityInCart + quantity);
+    document.querySelector('.stock-count').textContent =
+        `${remainingStock} قطعة متبقية`;
+
     updateCart();
-    showNotification('تم إضافة المنتج إلى سلة التسوق');
+    showSuccess(`تم إضافة ${quantity} × ${product.name} إلى سلة التسوق`);
 }
+
+
 
 // Update cart
 function updateCart() {

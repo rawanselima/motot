@@ -196,6 +196,7 @@ ul {
         linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)),
         url('../assets/images/hero-bg.png') center/cover no-repeat fixed;
     width: 100%;
+    object-fit: cover;
 }
 
 .hero::before {

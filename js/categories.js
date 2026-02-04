@@ -25,7 +25,7 @@ function loadCategories() {
             id: 1,
             name: "زيوت المحركات",
             description: "زيوت محركات صناعية وطبيعية بجميع درجات اللزوجة",
-            image: "https://via.placeholder.com/400x300/333/fff?text=زيوت+المحركات",
+            image: "/assets/images/car-ford-2-removebg-preview.png",
             count: 45,
             link: "products.html?category=oils"
         },
@@ -33,7 +33,7 @@ function loadCategories() {
             id: 2,
             name: "البطاريات والكهرباء",
             description: "بطاريات سيارات وأنظمة كهربائية وشواحن",
-            image: "https://via.placeholder.com/400x300/333/fff?text=البطاريات+والكهرباء",
+            image: "/assets/images/car-ford-3-removebg-preview.png",
             count: 32,
             link: "products.html?category=batteries"
         },
@@ -41,7 +41,7 @@ function loadCategories() {
             id: 3,
             name: "الإطارات والفرامل",
             description: "إطارات سيارات وقطع فرامل وأقراص",
-            image: "https://via.placeholder.com/400x300/333/fff?text=الإطارات+والفرامل",
+            image: "/assets/images/car-kia-3-removebg-preview.png",
             count: 28,
             link: "products.html?category=tires"
         },
@@ -49,7 +49,7 @@ function loadCategories() {
             id: 4,
             name: "قطع المحرك",
             description: "أجزاء المحرك الرئيسية والملحقات",
-            image: "https://via.placeholder.com/400x300/333/fff?text=قطع+المحرك",
+            image: "/assets/images/car-mg-4-removebg-preview.png",
             count: 67,
             link: "products.html?category=engine"
         },
@@ -57,49 +57,17 @@ function loadCategories() {
             id: 5,
             name: "الفلاتر والزيوت",
             description: "فلاتر هواء وزيت ووقود وسوائل تبريد",
-            image: "https://via.placeholder.com/400x300/333/fff?text=الفلاتر+والزيوت",
+            image: "/assets/images/car-kia-3-removebg-preview.png",
             count: 53,
             link: "products.html?category=filters"
-        },
-        {
-            id: 6,
-            name: "نظام العادم",
-            description: "أنابيب عادم وكواتم صوت ومحولات حفازة",
-            image: "https://via.placeholder.com/400x300/333/fff?text=نظام+العادم",
-            count: 24,
-            link: "products.html?category=exhaust"
         },
         {
             id: 7,
             name: "نظام التبريد",
             description: "راديترات ومراوح ومضخات ماء",
-            image: "https://via.placeholder.com/400x300/333/fff?text=نظام+التبريد",
+            image: "/assets/images/car-ford-2-removebg-preview.png",
             count: 19,
             link: "products.html?category=cooling"
-        },
-        {
-            id: 8,
-            name: "الإضاءة والزجاج",
-            description: "مصابيح سيارات ومرايا وزجاج",
-            image: "https://via.placeholder.com/400x300/333/fff?text=الإضاءة+والزجاج",
-            count: 41,
-            link: "products.html?category=lighting"
-        },
-        {
-            id: 9,
-            name: "ناقل الحركة",
-            description: "قطع غيار ناقل الحركة الأوتوماتيكي والعادي",
-            image: "https://via.placeholder.com/400x300/333/fff?text=ناقل+الحركة",
-            count: 36,
-            link: "products.html?category=transmission"
-        },
-        {
-            id: 10,
-            name: "الديكور والاكسسوارات",
-            description: "قطع تزيين وإضافات وتحسينات للسيارة",
-            image: "https://via.placeholder.com/400x300/333/fff?text=الديكور+والاكسسوارات",
-            count: 89,
-            link: "products.html?category=accessories"
         }
     ];
 

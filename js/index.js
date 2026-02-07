@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('orientationchange', adjustHeroImage);
         
         const heroImage = new Image();
-        heroImage.src = '../assets/images/hero-bg.png';
+        heroImage.src = 'assets/images/hero-bg.png';
         heroImage.onload = function() {
             heroSection.style.opacity = '1';
         };

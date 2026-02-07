@@ -25,7 +25,7 @@ function loadCategories() {
             id: 1,
             name: "زيوت المحركات",
             description: "زيوت محركات صناعية وطبيعية بجميع درجات اللزوجة",
-            image: "/assets/images/car-ford-2-removebg-preview.png",
+            image: "../assets/images/car-ford-2-removebg-preview.png",
             count: 45,
             link: "products.html?category=oils"
         },
@@ -33,7 +33,7 @@ function loadCategories() {
             id: 2,
             name: "البطاريات والكهرباء",
             description: "بطاريات سيارات وأنظمة كهربائية وشواحن",
-            image: "/assets/images/car-ford-3-removebg-preview.png",
+            image: "../assets/images/car-ford-3-removebg-preview.png",
             count: 32,
             link: "products.html?category=batteries"
         },
@@ -41,7 +41,7 @@ function loadCategories() {
             id: 3,
             name: "الإطارات والفرامل",
             description: "إطارات سيارات وقطع فرامل وأقراص",
-            image: "/assets/images/car-kia-3-removebg-preview.png",
+            image: "../assets/images/car-kia-3-removebg-preview.png",
             count: 28,
             link: "products.html?category=tires"
         },
@@ -49,7 +49,7 @@ function loadCategories() {
             id: 4,
             name: "قطع المحرك",
             description: "أجزاء المحرك الرئيسية والملحقات",
-            image: "/assets/images/car-mg-4-removebg-preview.png",
+            image: "../assets/images/car-mg-4-removebg-preview.png",
             count: 67,
             link: "products.html?category=engine"
         },
@@ -57,7 +57,7 @@ function loadCategories() {
             id: 5,
             name: "الفلاتر والزيوت",
             description: "فلاتر هواء وزيت ووقود وسوائل تبريد",
-            image: "/assets/images/car-kia-3-removebg-preview.png",
+            image: "../assets/images/car-kia-3-removebg-preview.png",
             count: 53,
             link: "products.html?category=filters"
         },
@@ -65,7 +65,7 @@ function loadCategories() {
             id: 7,
             name: "نظام التبريد",
             description: "راديترات ومراوح ومضخات ماء",
-            image: "/assets/images/car-ford-2-removebg-preview.png",
+            image: "../assets/images/car-ford-2-removebg-preview.png",
             count: 19,
             link: "products.html?category=cooling"
         }

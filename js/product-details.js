@@ -169,11 +169,11 @@ function addToCart(productId, quantity = 1) {
 // Get product by ID (sample data)
 function getProductById(id) {
     const products = [
-        { id: 1, name: "زيت محرك سينتيك 5W-30", price: 85, image: "https://www.nourstores.com/us/141/pidwebp600/5868/f132793155274608616310-1.png" },
-        { id: 13, name: "زيت محرك كاسترول 10W-40", price: 75, image: "https://via.placeholder.com/300x200/333/fff?text=زيت+محرك+كاسترول" },
-        { id: 14, name: "زيت ناقل حركة أوتوماتيك", price: 120, image: "https://via.placeholder.com/300x200/333/fff?text=زيت+ناقل+حركة" },
-        { id: 15, name: "فلتر زيت تويوتا أصلي", price: 35, image: "https://via.placeholder.com/300x200/333/fff?text=فلتر+زيت" },
-        { id: 16, name: "زيت فرامل DOT 4", price: 45, image: "https://via.placeholder.com/300x200/333/fff?text=زيت+فرامل" }
+        { id: 1, name: "زيت محرك سينتيك 5W-30", price: 85, image: "../assets/images/car-toyota-4-removebg-preview.png" }, // Adjusted path for consistency if needed, though id 1 matches main image
+        { id: 13, name: "زيت محرك كاسترول 10W-40", price: 75, image: "../assets/images/car-kia-1-removebg-preview.png" },
+        { id: 14, name: "زيت ناقل حركة أوتوماتيك", price: 120, image: "../assets/images/car-hyundai-3-removebg-preview.png" },
+        { id: 15, name: "فلتر زيت تويوتا أصلي", price: 35, image: "../assets/images/car-toyota-1-removebg-preview.png" },
+        { id: 16, name: "زيت فرامل DOT 4", price: 45, image: "../assets/images/car-ford-2-removebg-preview.png" }
     ];
     
     return products.find(product => product.id === id);

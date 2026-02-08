@@ -4,7 +4,7 @@ const featuredProducts = [
         id: 1,
         name: "زيت محرك سينتيك 5W-30",
         price: 85,
-        image: "https://www.nourstores.com/us/141/pidwebp600/5868/f132793155274608616310-1.png",
+        image: "../assets/images/car-ford-3-removebg-preview.png",
         category: "زيوت",
         rating: 4.5
     },
@@ -12,7 +12,7 @@ const featuredProducts = [
         id: 2,
         name: "بطارية سيارة 60 أمبير",
         price: 320,
-        image: "https://tse3.mm.bing.net/th/id/OIP.2Q4WEHfOWPYcjlXBUynVWwHaGm?rs=1&pid=ImgDetMain&o=7&rm=3",
+        image: "../assets/images/car-mg-2.jpg",
         category: "بطاريات",
         rating: 4.3
     },
@@ -20,7 +20,7 @@ const featuredProducts = [
         id: 3,
         name: "إطار هانكوك 205/55R16",
         price: 280,
-        image: "https://tse4.mm.bing.net/th/id/OIP.JoWN8X0RDqhBeKoRCH87rwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+        image: "../assets/images/car-nesan-3-removebg-preview.png",
         category: "إطارات",
         rating: 4.7
     },
@@ -28,7 +28,7 @@ const featuredProducts = [
         id: 4,
         name: "فلتر هواء تويوتا",
         price: 45,
-        image: "https://kaber-trade.com/wp-content/uploads/2024/07/3958.jpg",
+        image: "../assets/images/car-toyota-4.jpg",
         category: "فلاتر",
         rating: 4.2
     }

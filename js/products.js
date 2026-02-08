@@ -224,9 +224,9 @@ function displayPagination(totalProducts, currentPage) {
 
 // Add to cart
 function addToCart(productId, quantity = 1) {
-    const product = getProductById(productId);
+    const product = allProducts.find(p => p.id === productId);
     if (!product) {
-        showError('المنتج غير متوفر');
+        showNotification('المنتج غير متوفر');
         return;
     }
 
@@ -235,7 +235,7 @@ function addToCart(productId, quantity = 1) {
 
     // ❌ منع تجاوز المخزون
     if (currentQuantityInCart + quantity > product.stock) {
-        showError(`الكمية المتاحة فقط ${product.stock} قطعة`);
+        showNotification(`الكمية المتاحة فقط ${product.stock} قطعة`);
         return;
     }
 
@@ -247,18 +247,20 @@ function addToCart(productId, quantity = 1) {
             id: product.id,
             name: product.name,
             price: product.price,
-            image: product.image,
+            image: product.img,
             quantity: quantity
         });
     }
 
     // ✅ تحديث المخزون في الصفحة
     const remainingStock = product.stock - (currentQuantityInCart + quantity);
-    document.querySelector('.stock-count').textContent =
-        `${remainingStock} قطعة متبقية`;
+    const stockElement = document.querySelector('.stock-count');
+    if (stockElement) {
+        stockElement.textContent = `${remainingStock} قطعة متبقية`;
+    }
 
     updateCart();
-    showSuccess(`تم إضافة ${quantity} × ${product.name} إلى سلة التسوق`);
+    showNotification(`تم إضافة ${quantity} × ${product.name} إلى سلة التسوق`);
 }
 
 

@@ -806,8 +806,8 @@ function showSuccessModal(orderData) {
     }
     
     modal.innerHTML = `
-        <div class="modal-content" style="background: white; padding: 40px; border-radius: 12px; max-width: 500px; width: 90%; text-align: center; box-shadow: 0 10px 50px rgba(0,0,0,0.3);">
-            <div class="modal-icon" style="color: #28a745; font-size: 4rem; margin-bottom: 20px;">
+        <div class="modal-content" style="background: white; padding: 25px; border-radius: 12px; max-width: 500px; width: 90%; text-align: center; box-shadow: 0 10px 50px rgba(0,0,0,0.3); max-height: 85vh; overflow-y: auto;">
+            <div class="modal-icon" style="color: #28a745; font-size: 3rem; margin-bottom: 15px;">
                 <i class="fas fa-check-circle"></i>
             </div>
             <h3 style="color: #2c3e50; font-size: 1.8rem; margin-bottom: 15px;">تم تأكيد طلبك بنجاح!</h3>

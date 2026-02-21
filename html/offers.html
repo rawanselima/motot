@@ -3,43 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Motor Fix - الصفحة الرئيسية</title>
+    <title>باقات وعروض - Motor Fix</title>
+    <link rel="stylesheet" href="../css/offers.css" />
+    <link rel="stylesheet" href="../css/index.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <!-- Main Favicon -->
-    <link rel="shortcut icon" href="favIcon/favicon.ico" type="image/x-icon" />
-    <link
-      rel="icon"
-      href="favIcon/favicon-16x16.png"
-      type="image/png"
-      sizes="16x16"
-    />
-    <link
-      rel="icon"
-      href="favIcon/favicon-32x32.png"
-      type="image/png"
-      sizes="32x32"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="favIcon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="favIcon/android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="favIcon/android-chrome-512x512.png"
-    />
-    <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
     <!-- Header -->
@@ -53,10 +23,10 @@
           </div>
 
           <ul class="nav-links">
-            <li><a href="/index.html" class="active">الرئيسية</a></li>
+            <li><a href="/index.html">الرئيسية</a></li>
             <li><a href="/html/categories.html">التصنيفات</a></li>
             <li><a href="/html/products.html">المنتجات</a></li>
-            <li><a href="/html/offers.html">العروض</a></li>
+            <li><a href="/html/offers.html"  class="active" >العروض</a></li>
             <li><a href="/html/about.html">عن الشركة</a></li>
             <li><a href="/html/contact.html">اتصل بنا</a></li>
             <li class="cart-icon">
@@ -80,96 +50,84 @@
       </div>
     </header>
 
-    <!-- Hero Section with Moving Icons -->
-    <section class="hero-section">
-      <div class="moving-icons">
-        <i class="fas fa-car moving-icon"></i>
-        <i class="fas fa-tools moving-icon"></i>
-        <i class="fas fa-oil-can moving-icon"></i>
-        <i class="fas fa-car-battery moving-icon"></i>
-        <i class="fas fa-cog moving-icon"></i>
-        <i class="fas fa-wrench moving-icon"></i>
-        <i class="fas fa-gas-pump moving-icon"></i>
-        <i class="fas fa-engine moving-icon"></i>
-      </div>
+    <!-- Hero Section -->
+    <section class="offers-hero">
       <div class="container">
-        <div class="hero-content">
-          <h1>Motor Fix - قطع غيار السيارات الأصلية</h1>
-          <p>
-            أكبر متجر إلكتروني متخصص في بيع قطع غيار السيارات في مصر بأسعار
-            تنافسية وخدمة مميزة
-          </p>
-          <div class="hero-stats">
+        <div class="offers-hero-content">
+          <h1>باقات وعروض حصرية</h1>
+          <p>اكتشف مجموعتنا المميزة من الباقات والعروض التوفيرية</p>
+          <div class="offers-hero-stats">
             <div class="stat-item">
-              <span class="stat-number">5000+</span>
-              <span class="stat-label">قطعة غيار</span>
+              <span class="stat-number">20+</span>
+              <span class="stat-label">باقة متنوعة</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">50+</span>
-              <span class="stat-label">ماركة عالمية</span>
+              <span class="stat-number">40%</span>
+              <span class="stat-label">توفير يصل إلى</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">10000+</span>
-              <span class="stat-label">عميل سعيد</span>
+              <span class="stat-number">1000+</span>
+              <span class="stat-label">عميل وثق بنا</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Products Section (منتجات مميزة) -->
-    <section class="section-padding">
+    <!-- Offers Filter -->
+    <section class="offers-filter">
       <div class="container">
-        <div class="section-header">
-          <h2>منتجات مميزة</h2>
-          <p>أحدث وأفضل قطع الغيار الأصلية</p>
+        <div class="filter-header">
+          <h2>اختر الباقة المناسبة</h2>
+          <p>باقات متنوعة تناسب جميع الاحتياجات</p>
         </div>
 
-        <div class="products-grid" id="productsGrid">
-          <!-- Products will be loaded here -->
+        <div class="filter-controls">
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">
+              جميع الباقات
+            </button>
+            <button class="filter-tab" data-filter="bundle">
+              باقات ميكانيكا
+            </button>
+            <button class="filter-tab" data-filter="electrical">
+              باقات كهرباء
+            </button>
+            <button class="filter-tab" data-filter="maintenance">
+              باقات صيانة
+            </button>
+            <button class="filter-tab" data-filter="season">عروض موسمية</button>
+          </div>
+
+          <div class="filter-sort">
+            <select id="sortBundles">
+              <option value="default">ترتيب حسب</option>
+              <option value="saving-high">الأعلى توفيراً</option>
+              <option value="price-low">الأقل سعراً</option>
+              <option value="price-high">الأعلى سعراً</option>
+              <option value="popular">الأكثر مبيعاً</option>
+            </select>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Products Section (منتجات حديثة) -->
-    <section
-      class="section-padding"
-      style="background-color: var(--bg-primary)"
-    >
+    <!-- Bundles Grid -->
+    <section class="bundles-section section-padding">
       <div class="container">
-        <div class="section-header">
-          <h2>منتجات حديثة</h2>
-          <p>أحدث الواصلات من قطع الغيار</p>
-        </div>
-
-        <div class="products-grid" id="newProductsGrid">
-          <!-- New Products will be loaded here -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Offers Section (Bundles) -->
-    <section class="offers-section section-padding">
-      <div class="container">
-        <div class="section-header">
-          <h2>عروض مميزة</h2>
-          <p>باقات مخفضة تجمع أكتر من منتج مع بعض</p>
-        </div>
-
         <div class="bundles-grid" id="bundlesGrid">
           <!-- Bundles will be loaded here -->
         </div>
 
-        <div class="load-more-container">
-          <a href="./html/offers.html" class="btn-load-more">
-            <i class="fas fa-arrow-left"></i> مزيد من العروض
-          </a>
+        <!-- Pagination -->
+        <div class="pagination-container" id="paginationContainer">
+          <!-- Pagination will be generated here -->
         </div>
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
+    <!-- Bundle Features -->
+    <section class="bundle-features">
       <div class="container">
         <div class="features-grid">
           <div class="feature-item">
@@ -180,7 +138,7 @@
           <div class="feature-item">
             <i class="fas fa-truck"></i>
             <h3>توصيل مجاني</h3>
-            <p>لجميع الطلبات داخل القاهرة الكبرى</p>
+            <p>لجميع الباقات داخل القاهرة الكبرى</p>
           </div>
           <div class="feature-item">
             <i class="fas fa-headset"></i>
@@ -218,11 +176,11 @@
             <h4>روابط سريعة</h4>
             <ul>
               <li><a href="../index.html">الرئيسية</a></li>
-              <li><a href="/html/categories.html">التصنيفات</a></li>
-              <li><a href="/html/products.html">المنتجات</a></li>
-              <li><a href="/html/offers.html">العروض</a></li>
-              <li><a href="/html/about.html">عن الشركة</a></li>
-              <li><a href="/html/contact.html">اتصل بنا</a></li>
+              <li><a href="categories.html">التصنيفات</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="offers.html">العروض</a></li>
+              <li><a href="about.html">عن الشركة</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
             </ul>
           </div>
 
@@ -282,6 +240,6 @@
       </div>
     </footer>
 
-    <script src="./js/index.js"></script>
+    <script src="../js/offers.js"></script>
   </body>
 </html>

@@ -1,578 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>تفاصيل المنتج - Motor Fix</title>
-    <link rel="stylesheet" href="../css/product-details.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="icon" href="./favIcon/favicon-32x32.png" type="image/png" sizes="32x32">
-    <link rel="icon" href="./favicon-16x16.png" type="image/png" sizes="16x16">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/product-details.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <h1><a href="index.html">Motor Fix</a></h1>
-                </div>
-                
-                <ul class="nav-links">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="categories.html">التصنيفات</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="about.html">عن الشركة</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                    <li class="cart-icon">
-                        <a href="cart.html">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count">0</span>
-                        </a>
-                    </li>
-                </ul>
-                
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <a href="index.html">
+              <img src="./assets/test.png" alt="Motor Fix" class="logo-img" />
+            </a>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="/index.html">الرئيسية</a></li>
+            <li><a href="/html/categories.html">التصنيفات</a></li>
+            <li><a href="/html/products.html" class="active" >المنتجات</a></li>
+            <li><a href="/html/offers.html">العروض</a></li>
+            <li><a href="/html/about.html">عن الشركة</a></li>
+            <li><a href="/html/contact.html">اتصل بنا</a></li>
+            <li class="cart-icon">
+              <a href="/html/cart.html">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+              </a>
+            </li>
+            <li class="favorite-icon">
+              <a href="/html/fav.html">
+                <i class="fas fa-heart"></i>
+                <span class="favorite-count">0</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
     </header>
-
     <!-- Breadcrumb -->
-    <section class="breadcrumb-section">
-        <div class="container">
-            <nav class="breadcrumb">
-                <a href="index.html">الرئيسية</a>
-                <i class="fas fa-chevron-left"></i>
-                <a href="products.html">المنتجات</a>
-                <i class="fas fa-chevron-left"></i>
-                <a href="products.html?category=زيوت">زيوت</a>
-                <i class="fas fa-chevron-left"></i>
-                <span class="current">زيت محرك سينتيك 5W-30</span>
-            </nav>
-        </div>
-    </section>
-
-    <!-- Product Details -->
-    <section class="product-details section-padding">
-        <div class="container">
-            <div class="product-container">
-                <div class="product-gallery">
-                    <div class="main-image">
-                        <img src="../assets/images/car-toyota-4-removebg-preview.png" 
-                             alt="زيت محرك سينتيك 5W-30" id="mainImage">
-                    </div>
-                    
-                    <div class="thumbnail-images">
-                        <div class="thumbnail active" data-image="../assets/images/car-mg-11-removebg-preview.png">
-                            <img src="../assets/images/car-mg-11-removebg-preview.png" alt="صورة 1">
-                        </div>
-                        <div class="thumbnail" data-image="../assets/images/car-hyundai-3-removebg-preview.png">
-                            <img src="../assets/images/car-hyundai-3-removebg-preview.png" alt="صورة 2">
-                        </div>
-                        <div class="thumbnail" data-image="../assets/images/car-kia-2.jpg">
-                            <img src="../assets/images/car-kia-2.jpg" alt="صورة 3">
-                        </div>
-                        <div class="thumbnail" data-image="../assets/images/car-nesan-2-removebg-preview.png">
-                            <img src="../assets/images/car-nesan-2-removebg-preview.png" alt="صورة 4">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-info">
-                    <div class="product-header">
-                        <h1>زيت محرك سينتيك 5W-30</h1>
-                        <div class="product-meta">
-                            <span class="product-sku">رقم المنتج: MF-OIL-001</span>
-                            <span class="product-category">التصنيف: زيوت المحركات</span>
-                        </div>
-                    </div>
-                    
-                    <div class="product-rating">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="rating-text">4.5 (124 تقييم)</span>
-                        <a href="#reviews" class="review-link">عرض جميع التقييمات</a>
-                    </div>
-                    
-                    <div class="product-price">
-                        <span class="current-price">85 جنيه</span>
-                        <span class="original-price">100 جنيه</span>
-                        <span class="discount">15% خصم</span>
-                    </div>
-                    
-                    <div class="product-stock">
-                        <i class="fas fa-check-circle"></i>
-                        <span>متوفر في المخزن</span>
-                        <span class="stock-count">45 قطعة متبقية</span>
-                    </div>
-                    
-                    <div class="product-description">
-                        <h3>الوصف</h3>
-                        <p>زيت محرك صناعي بالكامل 5W-30 من سينتيك، يوفر حماية فائقة للمحرك في جميع الظروف الجوية. مناسب لجميع أنواع السيارات الحديثة.</p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check"></i> يحمي المحرك من التآكل</li>
-                            <li><i class="fas fa-check"></i> يحسن استهلاك الوقود</li>
-                            <li><i class="fas fa-check"></i> يحافظ على نظافة المحرك</li>
-                            <li><i class="fas fa-check"></i> مناسب للطقس الحار والبارد</li>
-                            <li><i class="fas fa-check"></i> عمر تشغيلي طويل</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="product-specs">
-                        <h3>المواصفات الفنية</h3>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <span class="spec-label">اللزوجة:</span>
-                                <span class="spec-value">5W-30</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">السعة:</span>
-                                <span class="spec-value">1 لتر</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">النوع:</span>
-                                <span class="spec-value">صناعي بالكامل</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">المناسب ل:</span>
-                                <span class="spec-value">جميع السيارات</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">العلامة التجارية:</span>
-                                <span class="spec-value">سينتيك</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">بلد المنشأ:</span>
-                                <span class="spec-value">الولايات المتحدة</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-actions">
-                        <div class="quantity-selector">
-                            <label>الكمية:</label>
-                            <div class="quantity-control">
-                                <button class="quantity-btn decrease"><i class="fas fa-minus"></i></button>
-                                <input type="number" class="quantity-input" value="1" min="1" max="45">
-                                <button class="quantity-btn increase"><i class="fas fa-plus"></i></button>
-                            </div>
-                        </div>
-                        
-                        <div class="action-buttons">
-                            <button class="btn btn-primary btn-add-cart">
-                                <i class="fas fa-shopping-cart"></i> أضف إلى السلة
-                            </button>
-                            <button class="btn btn-secondary btn-wishlist">
-                                <i class="far fa-heart"></i> أضف للمفضلة
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="product-tags">
-                        <span class="tag-label">الكلمات الدلالية:</span>
-                        <a href="#" class="tag">زيت محرك</a>
-                        <a href="#" class="tag">سينتيك</a>
-                        <a href="#" class="tag">5W-30</a>
-                        <a href="#" class="tag">زيوت صناعية</a>
-                    </div>
-                    
-                    <div class="product-share">
-                        <span class="share-label">شارك المنتج:</span>
-                        <div class="share-buttons">
-                            <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Tabs -->
-    <section class="product-tabs section-padding bg-light">
-        <div class="container">
-            <div class="tabs-header">
-                <button class="tab-btn active" data-tab="description">الوصف التفصيلي</button>
-                <button class="tab-btn" data-tab="specs">المواصفات</button>
-                <button class="tab-btn" data-tab="reviews" id="reviewsTab">التقييمات (124)</button>
-                <button class="tab-btn" data-tab="shipping">الشحن والتوصيل</button>
-            </div>
-            
-            <div class="tabs-content">
-                <div class="tab-pane active" id="description">
-                    <h3>معلومات تفصيلية عن المنتج</h3>
-                    <p>زيت محرك سينتيك 5W-30 هو زيت محرك صناعي بالكامل مصمم لتوفير حماية فائقة للمحرك في جميع الظروف الجوية. تم تطوير هذا الزيت باستخدام تكنولوجيا متقدمة تضمن أداءً ممتازاً للمحرك.</p>
-                    
-                    <h4>المميزات:</h4>
-                    <ul>
-                        <li>يوفر حماية استثنائية للمحرك من التآكل والصدأ</li>
-                        <li>يحسن من كفاءة استهلاك الوقود بنسبة تصل إلى 3%</li>
-                        <li>يحافظ على نظافة المحرك ومنع ترسبات الكربون</li>
-                        <li>أداء ممتاز في درجات الحرارة المنخفضة والمرتفعة</li>
-                        <li>عمر تشغيلي طويل يصل إلى 15,000 كم</li>
-                    </ul>
-                    
-                    <h4>الاستخدامات:</h4>
-                    <p>مناسب لجميع أنواع السيارات الحديثة التي تتطلب زيت 5W-30، بما في ذلك السيارات الأوروبية واليابانية والأمريكية.</p>
-                </div>
-                
-                <div class="tab-pane" id="specs">
-                    <h3>المواصفات الفنية الكاملة</h3>
-                    <div class="specs-table">
-                        <table>
-                            <tr>
-                                <th>المواصفة</th>
-                                <th>القيمة</th>
-                            </tr>
-                            <tr>
-                                <td>اللزوجة في 40°C</td>
-                                <td>63.1 cSt</td>
-                            </tr>
-                            <tr>
-                                <td>اللزوجة في 100°C</td>
-                                <td>10.6 cSt</td>
-                            </tr>
-                            <tr>
-                                <td>مؤشر اللزوجة</td>
-                                <td>169</td>
-                            </tr>
-                            <tr>
-                                <td>نقطة الاشتعال</td>
-                                <td>226°C</td>
-                            </tr>
-                            <tr>
-                                <td>نقطة الانسكاب</td>
-                                <td>-42°C</td>
-                            </tr>
-                            <tr>
-                                <td>المعايير</td>
-                                <td>API SN, ACEA A3/B4</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="tab-pane" id="reviews">
-                    <h3>تقييمات العملاء</h3>
-                    
-                    <div class="reviews-summary">
-                        <div class="overall-rating">
-                            <div class="rating-number">4.5</div>
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <div class="rating-count">124 تقييم</div>
-                        </div>
-                        
-                        <div class="rating-bars">
-                            <div class="rating-bar">
-                                <span>5 نجوم</span>
-                                <div class="bar">
-                                    <div class="fill" style="width: 70%"></div>
-                                </div>
-                                <span>70%</span>
-                            </div>
-                            <div class="rating-bar">
-                                <span>4 نجوم</span>
-                                <div class="bar">
-                                    <div class="fill" style="width: 20%"></div>
-                                </div>
-                                <span>20%</span>
-                            </div>
-                            <div class="rating-bar">
-                                <span>3 نجوم</span>
-                                <div class="bar">
-                                    <div class="fill" style="width: 7%"></div>
-                                </div>
-                                <span>7%</span>
-                            </div>
-                            <div class="rating-bar">
-                                <span>2 نجوم</span>
-                                <div class="bar">
-                                    <div class="fill" style="width: 2%"></div>
-                                </div>
-                                <span>2%</span>
-                            </div>
-                            <div class="rating-bar">
-                                <span>1 نجمة</span>
-                                <div class="bar">
-                                    <div class="fill" style="width: 1%"></div>
-                                </div>
-                                <span>1%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button class="btn btn-primary btn-add-review">
-                        <i class="fas fa-pen"></i> أضف تقييمك
-                    </button>
-                    
-                    <div class="reviews-list">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <h4>محمد أحمد</h4>
-                                    <div class="review-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <span class="review-date">15 يناير 2024</span>
-                            </div>
-                            <div class="review-content">
-                                <h5>زيت ممتاز</h5>
-                                <p>استخدمت هذا الزيت لسيارتي تويوتا كامري 2020 وكان الأداء ممتازاً. المحرك أصبح أكثر هدوءاً واستهلاك الوقود تحسن بشكل ملحوظ. أنصح به بشدة.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="review-item">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <h4>خالد سعيد</h4>
-                                    <div class="review-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <span class="review-date">10 يناير 2024</span>
-                            </div>
-                            <div class="review-content">
-                                <h5>جيد جداً</h5>
-                                <p>المنتج جيد والجودة عالية. التوصيل كان سريعاً والخدمة ممتازة. أنصح بالتعامل مع هذا المتجر.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tab-pane" id="shipping">
-                    <h3>سياسة الشحن والتوصيل</h3>
-                    
-                    <div class="shipping-info">
-                        <div class="shipping-item">
-                            <i class="fas fa-shipping-fast"></i>
-                            <div>
-                                <h4>الشحن السريع</h4>
-                                <p>نقدم خدمة توصيل سريعة خلال 24-48 ساعة داخل بلطيم، و 3-5 أيام لباقي المحافظات.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="shipping-item">
-                            <i class="fas fa-truck"></i>
-                            <div>
-                                <h4>التوصيل المجاني</h4>
-                                <p>توصيل مجاني لجميع الطلبات التي تزيد عن 5000 جنيه داخل بلطيم.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="shipping-item">
-                            <i class="fas fa-box"></i>
-                            <div>
-                                <h4>التغليف الآمن</h4>
-                                <p>جميع المنتجات يتم تغليفها بشكل آمن لحمايتها أثناء النقل.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="shipping-item">
-                            <i class="fas fa-undo"></i>
-                            <div>
-                                <h4>سياسة الإرجاع</h4>
-                                <p>يمكنك إرجاع المنتج خلال 7 أيام من الاستلام بشرط أن يكون بحالته الأصلية.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Related Products -->
-    <section class="related-products section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2>منتجات ذات صلة</h2>
-                <p>قد يعجبك أيضاً</p>
-            </div>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="../assets/images/car-kia-1-removebg-preview.png" alt="زيت محرك كاسترول">
-                    </div>
-                    <div class="product-info">
-                        <h3>زيت محرك كاسترول 10W-40</h3>
-                        <span class="product-price">75 جنيه</span>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <div class="product-actions">
-                            <a href="product-details.html" class="btn btn-view">عرض التفاصيل</a>
-                            <button class="btn btn-add-cart" data-product-id="13">أضف للسلة</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="../assets/images/car-hyundai-3-removebg-preview.png" alt="زيت ناقل حركة">
-                    </div>
-                    <div class="product-info">
-                        <h3>زيت ناقل حركة أوتوماتيك</h3>
-                        <span class="product-price">120 جنيه</span>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <div class="product-actions">
-                            <a href="product-details.html" class="btn btn-view">عرض التفاصيل</a>
-                            <button class="btn btn-add-cart" data-product-id="14">أضف للسلة</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="../assets/images/car-toyota-1-removebg-preview.png" alt="فلتر زيت">
-                    </div>
-                    <div class="product-info">
-                        <h3>فلتر زيت تويوتا أصلي</h3>
-                        <span class="product-price">35 جنيه</span>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <div class="product-actions">
-                            <a href="product-details.html" class="btn btn-view">عرض التفاصيل</a>
-                            <button class="btn btn-add-cart" data-product-id="15">أضف للسلة</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="../assets/images/car-ford-2-removebg-preview.png" alt="زيت فرامل">
-                    </div>
-                    <div class="product-info">
-                        <h3>زيت فرامل DOT 4</h3>
-                        <span class="product-price">45 جنيه</span>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <div class="product-actions">
-                            <a href="product-details.html" class="btn btn-view">عرض التفاصيل</a>
-                            <button class="btn btn-add-cart" data-product-id="16">أضف للسلة</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-  <!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h3>Motor Fix</h3>
-                <p>متجرك الموثوق لقطع غيار السيارات الأصلية بأسعار تنافسية وخدمة مميزة في مصر.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-
-                </div>
-            </div>
-            
-            <div class="footer-col">
-                <h4>روابط سريعة</h4>
-                <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="categories.html">التصنيفات</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="about.html">عن الشركة</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>سياسات</h4>
-                <ul>
-                    <li><a href="contact.html">سياسة الإرجاع</a></li>
-                    <li><a href="contact.html" class="active">الشروط والأحكام</a></li>
-                    <li><a href="contact.html">سياسة الخصوصية</a></li>
-                    <li><a href="contact.html">الدعم الفني</a></li>
-                    <li><a href="contact.html">الأسئلة الشائعة</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>اتصل بنا</h4>
-                <ul class="contact-info">
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span> كفرالشيخ - مصر </span>
-                    </li>
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        <span>01013706142</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <span>abdelkader@gmail.com</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>جميع الحقوق محفوظة &copy; <span class="current-year">2026</span> Motor Fix</p>
-            <p class="developer-credit">
-                تطوير 
-                <a href="https://api.whatsapp.com/send?phone=201013706142" target="_blank" class="developer-link">
-                    Abdelkader Mohamed &
-                </a> 
-                <a href="https://api.whatsapp.com/send?phone=201010942959" target="_blank" class="developer-link">
-                    Ahmed Nada
-                </a>
-            </p>
-        </div>
+    <div class="breadcrumb">
+      <div class="container">
+        <ul class="breadcrumb-list">
+          <li><a href="../index.html">الرئيسية</a></li>
+          <li><a href="products.html">المنتجات</a></li>
+          <li class="active" id="breadcrumbTitle">تفاصيل المنتج</li>
+        </ul>
+      </div>
     </div>
-</footer>
+
+    <!-- Product Details Section -->
+    <section class="product-details">
+      <div class="container">
+        <div class="product-details-container" id="productDetailsContainer">
+          <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>جاري تحميل تفاصيل المنتج...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>Motor Fix</h3>
+            <p>
+              متجرك الموثوق لقطع غيار السيارات الأصلية بأسعار تنافسية وخدمة
+              مميزة في مصر.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>روابط سريعة</h4>
+            <ul>
+              <li><a href="../index.html">الرئيسية</a></li>
+              <li><a href="categories.html">التصنيفات</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="offers.html">العروض</a></li>
+              <li><a href="about.html">عن الشركة</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>سياسات</h4>
+            <ul>
+              <li><a href="contact.html">سياسة الإرجاع</a></li>
+              <li><a href="contact.html">الشروط والأحكام</a></li>
+              <li><a href="contact.html">سياسة الخصوصية</a></li>
+              <li><a href="contact.html">الدعم الفني</a></li>
+              <li><a href="contact.html">الأسئلة الشائعة</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>اتصل بنا</h4>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>كفرالشيخ - مصر</span>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>01013706142</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <span>abdelkader@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            جميع الحقوق محفوظة &copy;
+            <span class="current-year">2026</span> Motor Fix
+          </p>
+          <p class="developer-credit">
+            تطوير
+            <a
+              href="https://api.whatsapp.com/send?phone=201013706142"
+              target="_blank"
+              class="developer-link"
+            >
+              Abdelkader Mohamed &
+            </a>
+            <a
+              href="https://api.whatsapp.com/send?phone=201010942959"
+              target="_blank"
+              class="developer-link"
+            >
+              Ahmed Nada
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
     <script src="../js/product-details.js"></script>
-</body>
+  </body>
 </html>

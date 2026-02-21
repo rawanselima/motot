@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تفاصيل الباقة - Motor Fix</title>
+    <link rel="stylesheet" href="../css/offer-details.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <a href="index.html">
+              <img src="./assets/test.png" alt="Motor Fix" class="logo-img" />
+            </a>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="/index.html">الرئيسية</a></li>
+            <li><a href="/html/categories.html">التصنيفات</a></li>
+            <li><a href="/html/products.html">المنتجات</a></li>
+            <li><a href="/html/offers.html"  class="active" >العروض</a></li>
+            <li><a href="/html/about.html">عن الشركة</a></li>
+            <li><a href="/html/contact.html">اتصل بنا</a></li>
+            <li class="cart-icon">
+              <a href="/html/cart.html">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+              </a>
+            </li>
+            <li class="favorite-icon">
+              <a href="/html/fav.html">
+                <i class="fas fa-heart"></i>
+                <span class="favorite-count">0</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Bundle Details Section -->
+    <section class="bundle-details section-padding" id="bundleDetails">
+      <div class="container">
+        <!-- Loading State -->
+        <div class="loading-state" id="loadingState">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p>جاري تحميل تفاصيل الباقة...</p>
+        </div>
+
+        <!-- Bundle Content (hidden initially) -->
+        <div
+          class="bundle-content-wrapper"
+          id="bundleContent"
+          style="display: none"
+        >
+          <!-- Breadcrumb -->
+          <div class="breadcrumb">
+            <a href="../index.html">الرئيسية</a>
+            <i class="fas fa-chevron-left"></i>
+            <a href="offers.html">الباقات</a>
+            <i class="fas fa-chevron-left"></i>
+            <span id="bundleName"></span>
+          </div>
+
+          <div class="bundle-details-grid">
+            <!-- Right Column - Images -->
+            <div class="bundle-images">
+              <div class="main-image">
+                <img id="mainImage" src="" alt="Bundle Image" />
+                <div class="image-badges">
+                  <span class="badge save" id="saveBadge"></span>
+                  <span
+                    class="badge popular"
+                    id="popularBadge"
+                    style="display: none"
+                    >الأكثر مبيعاً</span
+                  >
+                  <span
+                    class="badge limited"
+                    id="limitedBadge"
+                    style="display: none"
+                    >كمية محدودة</span
+                  >
+                </div>
+              </div>
+
+              <div class="bundle-stats-mini">
+                <div class="stat-mini">
+                  <i class="fas fa-box"></i>
+                  <span id="itemsCount"></span>
+                </div>
+                <div class="stat-mini">
+                  <i class="fas fa-star"></i>
+                  <span id="rating"></span>
+                </div>
+                <div class="stat-mini">
+                  <i class="fas fa-users"></i>
+                  <span id="soldCount"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Left Column - Details -->
+            <div class="bundle-info">
+              <h1 id="bundleTitle"></h1>
+              <p class="bundle-category" id="bundleCategory"></p>
+              <p class="bundle-description" id="bundleDescription"></p>
+
+              <!-- Pricing -->
+              <div class="bundle-pricing-detailed">
+                <div class="price-row">
+                  <span>السعر الأصلي:</span>
+                  <span class="original-price" id="originalPrice"></span>
+                </div>
+                <div class="price-row highlight">
+                  <span>سعر الباقة:</span>
+                  <span class="bundle-price" id="bundlePrice"></span>
+                </div>
+                <div class="price-row savings">
+                  <span>وفرت:</span>
+                  <span class="savings-amount" id="savingsAmount"></span>
+                </div>
+              </div>
+
+              <!-- Stock Status -->
+              <div class="stock-status" id="stockStatus"></div>
+
+              <!-- Items List -->
+              <div class="bundle-items-detailed">
+                <h3>محتويات الباقة</h3>
+                <div class="items-grid" id="itemsGrid"></div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="bundle-actions-detailed">
+                <div class="quantity-selector">
+                  <button onclick="decreaseQuantity()">-</button>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="99"
+                  />
+                  <button onclick="increaseQuantity()">+</button>
+                </div>
+
+                <button class="btn btn-primary btn-large" onclick="addToCart()">
+                  <i class="fas fa-cart-plus"></i> أضف للسلة
+                </button>
+
+                <button
+                  class="btn btn-outline btn-large"
+                  id="favoriteBtn"
+                  onclick="toggleFavorite()"
+                >
+                  <i class="far fa-heart"></i> أضف للمفضلة
+                </button>
+              </div>
+
+              <!-- Features -->
+              <div class="bundle-features-detailed">
+                <div class="feature">
+                  <i class="fas fa-truck"></i>
+                  <div>
+                    <h4>توصيل مجاني</h4>
+                    <p>للطلبات فوق 500 جنيه</p>
+                  </div>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-shield-alt"></i>
+                  <div>
+                    <h4>ضمان الجودة</h4>
+                    <p>جميع القطع أصلية</p>
+                  </div>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-undo"></i>
+                  <div>
+                    <h4>إرجاع مجاني</h4>
+                    <p>خلال 14 يوم</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Bundles -->
+    <section class="related-bundles section-padding">
+      <div class="container">
+        <div class="section-header">
+          <h2>باقات مشابهة</h2>
+          <p>قد تهمك هذه الباقات أيضاً</p>
+        </div>
+
+        <div class="related-grid" id="relatedGrid">
+          <!-- Related bundles will be loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>Motor Fix</h3>
+            <p>
+              متجرك الموثوق لقطع غيار السيارات الأصلية بأسعار تنافسية وخدمة
+              مميزة في مصر.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>روابط سريعة</h4>
+            <ul>
+              <li><a href="../index.html">الرئيسية</a></li>
+              <li><a href="categories.html">التصنيفات</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="offers.html">العروض</a></li>
+              <li><a href="about.html">عن الشركة</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>سياسات</h4>
+            <ul>
+              <li><a href="contact.html">سياسة الإرجاع</a></li>
+              <li><a href="contact.html">الشروط والأحكام</a></li>
+              <li><a href="contact.html">سياسة الخصوصية</a></li>
+              <li><a href="contact.html">الدعم الفني</a></li>
+              <li><a href="contact.html">الأسئلة الشائعة</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>اتصل بنا</h4>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>كفر الشيخ - مصر</span>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>01013706142</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <span>abdelkader@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            جميع الحقوق محفوظة &copy;
+            <span class="current-year">2026</span> Motor Fix
+          </p>
+        </div>
+
+        <p class="developer-credit">
+          تطوير
+          <a
+            href="https://api.whatsapp.com/send?phone=201013706142"
+            target="_blank"
+            class="developer-link"
+          >
+            Abdelkader Mohamed &
+          </a>
+          <a
+            href="https://api.whatsapp.com/send?phone=201010942959"
+            target="_blank"
+            class="developer-link"
+          >
+            Ahmed Nada
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../js/offer-details.js"></script>
+  </body>
+</html>

@@ -1,163 +1,203 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>سلة التسوق - Motor Fix</title>
-    <link rel="stylesheet" href="../css/cart.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="icon" href="./favIcon/favicon-32x32.png" type="image/png" sizes="32x32">
-    <link rel="icon" href="./favicon-16x16.png" type="image/png" sizes="16x16">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="./favIcon/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="./favicon-16x16.png"
+      type="image/png"
+      sizes="16x16"
+    />
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <h1><a href="index.html">Motor Fix</a></h1>
-                </div>
-                
-                <ul class="nav-links">
-                    <li><a href="../index.html">الرئيسية</a></li>
-                    <li><a href="categories.html">التصنيفات</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="about.html">عن الشركة</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                    <li class="cart-icon">
-                        <a href="cart.html" class="active">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count">0</span>
-                        </a>
-                    </li>
-                </ul>
-                
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <a href="index.html">
+              <img src="./assets/test.png" alt="Motor Fix" class="logo-img" />
+            </a>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="/index.html">الرئيسية</a></li>
+            <li><a href="/html/categories.html">التصنيفات</a></li>
+            <li><a href="/html/products.html">المنتجات</a></li>
+            <li><a href="/html/offers.html">العروض</a></li>
+            <li><a href="/html/about.html">عن الشركة</a></li>
+            <li><a href="/html/contact.html">اتصل بنا</a></li>
+            <li class="cart-icon"  class="active">
+              <a href="/html/cart.html">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+              </a>
+            </li>
+            <li class="favorite-icon">
+              <a href="/html/fav.html">
+                <i class="fas fa-heart"></i>
+                <span class="favorite-count">0</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <!-- Cart Section -->
     <section class="cart-section section-padding">
-        <div class="container">
-            <div class="cart-header">
-                <h1><i class="fas fa-shopping-cart"></i> سلة التسوق</h1>
-                <p>راجع منتجاتك قبل المتابعة للدفع</p>
-            </div>
-            
-            <div class="cart-container">
-                <div class="cart-items" id="cartItems">
-                    <!-- Cart items will be loaded by JavaScript -->
-                    <div class="cart-empty" id="cartEmpty">
-                        <i class="fas fa-shopping-basket"></i>
-                        <h3>سلة التسوق فارغة</h3>
-                        <p>لم تقم بإضافة أي منتجات إلى سلة التسوق بعد</p>
-                        <a href="products.html" class="btn btn-primary">تصفح المنتجات</a>
-                    </div>
-                </div>
-                
-                <div class="cart-summary" id="cartSummary">
-                    <h3>ملخص الطلب</h3>
-                    <div class="summary-details">
-                        <div class="summary-row">
-                            <span>عدد المنتجات:</span>
-                            <span id="itemsCount">0</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>المجموع الفرعي:</span>
-                            <span id="subtotal">0 جنيه</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>رسوم الشحن:</span>
-                            <span id="shipping">25 جنيه</span>
-                        </div>
-                        <div class="summary-row total">
-                            <span>المجموع الكلي:</span>
-                            <span id="total">25 جنيه</span>
-                        </div>
-                    </div>
-                    <a href="checkout.html" class="btn btn-primary btn-checkout" id="checkoutBtn">متابعة الدفع</a>
-                    <a href="products.html" class="btn btn-secondary">مواصلة التسوق</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="cart-header">
+          <h1><i class="fas fa-shopping-cart"></i> سلة التسوق</h1>
+          <p>راجع منتجاتك قبل المتابعة للدفع</p>
         </div>
+
+        <div class="cart-container">
+          <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded by JavaScript -->
+            <div class="cart-empty" id="cartEmpty">
+              <i class="fas fa-shopping-basket"></i>
+              <h3>سلة التسوق فارغة</h3>
+              <p>لم تقم بإضافة أي منتجات إلى سلة التسوق بعد</p>
+              <a href="products.html" class="btn btn-primary">تصفح المنتجات</a>
+            </div>
+          </div>
+
+          <div class="cart-summary" id="cartSummary">
+            <h3>ملخص الطلب</h3>
+            <div class="summary-details">
+              <div class="summary-row">
+                <span>عدد المنتجات:</span>
+                <span id="itemsCount">0</span>
+              </div>
+              <div class="summary-row">
+                <span>المجموع الفرعي:</span>
+                <span id="subtotal">0 جنيه</span>
+              </div>
+              <div class="summary-row">
+                <span>رسوم الشحن:</span>
+                <span id="shipping">25 جنيه</span>
+              </div>
+              <div class="summary-row total">
+                <span>المجموع الكلي:</span>
+                <span id="total">25 جنيه</span>
+              </div>
+            </div>
+            <a
+              href="checkout.html"
+              class="btn btn-primary btn-checkout"
+              id="checkoutBtn"
+              >متابعة الدفع</a
+            >
+            <a href="products.html" class="btn btn-secondary">مواصلة التسوق</a>
+          </div>
+        </div>
+      </div>
     </section>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
         <div class="footer-grid">
-            <div class="footer-col">
-                <h3>Motor Fix</h3>
-                <p>متجرك الموثوق لقطع غيار السيارات الأصلية بأسعار تنافسية وخدمة مميزة في مصر.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-
-                </div>
-            </div>
-            
-            <div class="footer-col">
-                <h4>روابط سريعة</h4>
-                <ul>
-                    <li><a href="../index.html">الرئيسية</a></li>
-                    <li><a href="categories.html">التصنيفات</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="about.html">عن الشركة</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>سياسات</h4>
-                <ul>
-                    <li><a href="contact.html">سياسة الإرجاع</a></li>
-                    <li><a href="contact.html" class="active">الشروط والأحكام</a></li>
-                    <li><a href="contact.html">سياسة الخصوصية</a></li>
-                    <li><a href="contact.html">الدعم الفني</a></li>
-                    <li><a href="contact.html">الأسئلة الشائعة</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>اتصل بنا</h4>
-                <ul class="contact-info">
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span> كفرالشيخ - مصر </span>
-                    </li>
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        <span>01013706142</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <span>abdelkader@gmail.com</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>جميع الحقوق محفوظة &copy; <span class="current-year">2026</span> Motor Fix</p>
-            <p class="developer-credit">
-                تطوير 
-                <a href="https://api.whatsapp.com/send?phone=201013706142" target="_blank" class="developer-link">
-                    Abdelkader Mohamed &
-                </a> 
-                <a href="https://api.whatsapp.com/send?phone=201010942959" target="_blank" class="developer-link">
-                    Ahmed Nada
-                </a>
+          <div class="footer-col">
+            <h3>Motor Fix</h3>
+            <p>
+              متجرك الموثوق لقطع غيار السيارات الأصلية بأسعار تنافسية وخدمة
+              مميزة في مصر.
             </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>روابط سريعة</h4>
+            <ul>
+              <li><a href="../index.html">الرئيسية</a></li>
+              <li><a href="categories.html">التصنيفات</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="about.html">عن الشركة</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>سياسات</h4>
+            <ul>
+              <li><a href="contact.html">سياسة الإرجاع</a></li>
+              <li><a href="contact.html" class="active">الشروط والأحكام</a></li>
+              <li><a href="contact.html">سياسة الخصوصية</a></li>
+              <li><a href="contact.html">الدعم الفني</a></li>
+              <li><a href="contact.html">الأسئلة الشائعة</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>اتصل بنا</h4>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span> كفرالشيخ - مصر </span>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>01013706142</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <span>abdelkader@gmail.com</span>
+              </li>
+            </ul>
+          </div>
         </div>
-    </div>
-</footer>
+
+        <div class="footer-bottom">
+          <p>
+            جميع الحقوق محفوظة &copy;
+            <span class="current-year">2026</span> Motor Fix
+          </p>
+          <p class="developer-credit">
+            تطوير
+            <a
+              href="https://api.whatsapp.com/send?phone=201013706142"
+              target="_blank"
+              class="developer-link"
+            >
+              Abdelkader Mohamed &
+            </a>
+            <a
+              href="https://api.whatsapp.com/send?phone=201010942959"
+              target="_blank"
+              class="developer-link"
+            >
+              Ahmed Nada
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
     <script src="../js/cart.js"></script>
-</body>
+  </body>
 </html>

@@ -1,490 +1,637 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>الدفع - Motor Fix</title>
-    <link rel="stylesheet" href="../css/checkout.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../favIcon/favicon-32x32.png" type="image/png" sizes="32x32">
-    <link rel="icon" href="../favicon-16x16.png" type="image/png" sizes="16x16">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/checkout.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="../favIcon/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="../favicon-16x16.png"
+      type="image/png"
+      sizes="16x16"
+    />
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <h1>
-                        <a href="../index.html">Motor Fix</a>
-                    </h1>
-                </div>
-                
-                <ul class="nav-links">
-                    <li><a href="../index.html">الرئيسية</a></li>
-                    <li><a href="categories.html">التصنيفات</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="about.html">عن الشركة</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                    <li class="cart-icon">
-                        <a href="cart.html">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count">0</span>
-                        </a>
-                    </li>
-                </ul>
-                
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <a href="index.html">
+              <img src="./assets/test.png" alt="Motor Fix" class="logo-img" />
+            </a>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="/index.html">الرئيسية</a></li>
+            <li><a href="/html/categories.html">التصنيفات</a></li>
+            <li><a href="/html/products.html">المنتجات</a></li>
+            <li><a href="/html/offers.html">العروض</a></li>
+            <li><a href="/html/about.html">عن الشركة</a></li>
+            <li><a href="/html/contact.html">اتصل بنا</a></li>
+            <li class="cart-icon">
+              <a href="/html/cart.html">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+              </a>
+            </li>
+            <li class="favorite-icon">
+              <a href="/html/fav.html">
+                <i class="fas fa-heart"></i>
+                <span class="favorite-count">0</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <!-- Checkout Section -->
     <section class="checkout-section section-padding">
-        <div class="container">
-            <div class="checkout-header">
-                <h1><i class="fas fa-credit-card"></i> إتمام الطلب</h1>
-                <p>أدخل معلوماتك لإتمام عملية الشراء</p>
-            </div>
-            
-            <div class="checkout-container">
-                <div class="checkout-steps">
-                    <div class="step active">
-                        <span class="step-number">1</span>
-                        <span class="step-text">معلومات العميل</span>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <span class="step-text">عنوان الشحن</span>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <span class="step-text">تأكيد الطلب</span>
-                    </div>
-                </div>
-                
-                <div class="checkout-content">
-                    <form id="checkoutForm">
-                        <!-- Step 1: Customer Information -->
-                        <div class="checkout-step active" id="step1">
-                            <h2>معلومات العميل</h2>
-                            <div class="form-group">
-                                <label for="fullName">الاسم الكامل *</label>
-                                <input type="text" id="fullName" name="fullName" required>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email">البريد الإلكتروني *</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">رقم الهاتف *</label>
-                                    <input type="tel" id="phone" name="phone" required placeholder="مثال: 01012345678">
-                                </div>
-                            </div>
-                            
-                            <div class="step-buttons">
-                                <button type="button" class="btn btn-primary next-step" data-next="step2">
-                                    التالي <i class="fas fa-chevron-left"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Step 2: Shipping Address -->
-                        <div class="checkout-step" id="step2">
-                            <h2>عنوان الشحن</h2>
-                            
-                            <div class="form-group">
-                                <label for="address">العنوان التفصيلي *</label>
-                                <textarea id="address" name="address" rows="3" required placeholder="شارع - مبنى - شقة"></textarea>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="governorate">المحافظة *</label>
-                                    <select id="governorate" name="governorate" required>
-                                        <option value="">اختر المحافظة</option>
-                                    
-                                        <option value="القاهرة">القاهرة</option>
-                                        <option value="كفر الشيخ">كفر الشيخ</option>
-                                        <option value="الجيزة">الجيزة</option>
-                                        <option value="الإسكندرية">الإسكندرية</option>
-                                        <option value="الفيوم">الفيوم</option>
-                                    
-                                        <option value="الدقهلية">الدقهلية</option>
-                                        <option value="الشرقية">الشرقية</option>
-                                        <option value="الغربية">الغربية</option>
-                                        <option value="المنوفية">المنوفية</option>
-                                        <option value="القليوبية">القليوبية</option>
-                                        <option value="البحيرة">البحيرة</option>
-                                        <option value="دمياط">دمياط</option>
-                                    
-                                        <option value="بورسعيد">بورسعيد</option>
-                                        <option value="الإسماعيلية">الإسماعيلية</option>
-                                        <option value="السويس">السويس</option>
-                                    
-                                        <option value="بني سويف">بني سويف</option>
-                                        <option value="المنيا">المنيا</option>
-                                        <option value="أسيوط">أسيوط</option>
-                                        <option value="سوهاج">سوهاج</option>
-                                        <option value="قنا">قنا</option>
-                                        <option value="الأقصر">الأقصر</option>
-                                        <option value="أسوان">أسوان</option>
-                                    
-                                        <option value="البحر الأحمر">البحر الأحمر</option>
-                                        <option value="الوادي الجديد">الوادي الجديد</option>
-                                        <option value="مطروح">مطروح</option>
-                                        <option value="شمال سيناء">شمال سيناء</option>
-                                        <option value="جنوب سيناء">جنوب سيناء</option>
-                                    </select>
-                                    
-                                </div>
-                                <div class="form-group">
-                                    <label for="city">المدينة *</label>
-                                    <input type="text" id="city" name="city" required placeholder="مثال: مدينة كفر الشيخ">
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="district">الحي/القرية *</label>
-                                    <input type="text" id="district" name="district" required placeholder="مثال: حي الجامعة">
-                                </div>
-                                <div class="form-group">
-                                    <label for="postalCode">الرقم البريدي</label>
-                                    <input type="text" id="postalCode" name="postalCode" placeholder="اختياري">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="landmark">أقرب معلم بارز</label>
-                                <input type="text" id="landmark" name="landmark" placeholder="مثال: أمام مسجد السلام">
-                            </div>
-                            
-                            <div class="step-buttons">
-                                <button type="button" class="btn btn-secondary prev-step" data-prev="step1">
-                                    <i class="fas fa-chevron-right"></i> السابق
-                                </button>
-                                <button type="button" class="btn btn-primary next-step" data-next="step3">
-                                    التالي <i class="fas fa-chevron-left"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Step 3: Order Confirmation -->
-                        <div class="checkout-step" id="step3">
-                            <h2>تأكيد الطلب</h2>
-                            
-                            <div class="order-summary">
-                                <div class="summary-header">
-                                    <h3>ملخص الطلب</h3>
-                                    <a href="cart.html" class="edit-cart">تعديل السلة</a>
-                                </div>
-                                
-                                <div class="order-items" id="orderItems">
-                                    <!-- Order items will be loaded by JavaScript -->
-                                </div>
-                                
-                                <div class="order-totals">
-                                    <div class="total-row">
-                                        <span>المجموع الفرعي:</span>
-                                        <span id="orderSubtotal">0 جنيه</span>
-                                    </div>
-                                    <div class="total-row">
-                                        <span>رسوم الشحن:</span>
-                                        <span id="orderShipping">50 جنيه</span>
-                                    </div>
-                                    <div class="total-row">
-                                        <span>الضريبة (14%):</span>
-                                        <span id="orderTax">0 جنيه</span>
-                                    </div>
-                                    <div class="total-row grand-total">
-                                        <span>المجموع الكلي:</span>
-                                        <span id="orderTotal">50 جنيه</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="payment-methods">
-                                <h3>طريقة الدفع</h3>
-                                <div class="payment-options">
-                                    <label class="payment-option">
-                                        <input type="radio" name="payment" value="vodafone">
-                                        <span class="payment-icon"><i class="fas fa-mobile-alt"></i></span>
-                                        <span class="payment-text">فودافون كاش</span>
-                                    </label>
-                                    <label class="payment-option">
-                                        <input type="radio" name="payment" value="instapay">
-                                        <span class="payment-icon"><i class="fas fa-bolt"></i></span>
-                                        <span class="payment-text">انستا باي</span>
-                                    </label>
-                                    <label class="payment-option">
-                                        <input type="radio" name="payment" value="cash" checked>
-                                        <span class="payment-icon"><i class="fas fa-money-bill-wave"></i></span>
-                                        <span class="payment-text">الدفع عند الاستلام</span>
-                                    </label>
-                                </div>
-                                
-                                <!-- Payment Details Section -->
-                                <div class="payment-details hidden" id="paymentDetails">
-                                    <!-- فودافون كاش -->
-                                    <div class="payment-method-details" id="vodafoneDetails">
-                                        <div class="payment-info">
-                                            <div class="payment-instruction">
-                                                <i class="fas fa-info-circle"></i>
-                                                <p><strong>تعليمات الدفع:</strong> قم بتحويل المبلغ إلى الرقم أدناه ثم أرفع صورة إيصال التحويل</p>
-                                            </div>
-                                            
-                                            <div class="payment-number-box">
-                                                <h4><i class="fas fa-mobile-alt"></i> فودافون كاش</h4>
-                                                <p>الرجاء التحويل إلى الرقم التالي:</p>
-                                                <div class="payment-number">01013706142</div>
-                                                <p>اسم المستلم: <strong>Motor Fix</strong></p>
-                                            </div>
-                                            
-                                            <div class="upload-section">
-                                                <label class="upload-label">
-                                                    <i class="fas fa-receipt"></i> إرفع صورة إيصال التحويل
-                                                    <span class="required-star">*</span>
-                                                </label>
-                                                
-                                                <div class="file-upload-box" id="vodafoneUploadBox">
-                                                    <i class="fas fa-cloud-upload-alt"></i>
-                                                    <p>انقر لرفع صورة الإيصال</p>
-                                                    <small>JPG, PNG (حد أقصى 5MB)</small>
-                                                    <input type="file" id="vodafoneReceipt" accept="image/*" hidden>
-                                                </div>
-                                                
-                                                <div class="file-preview hidden" id="vodafonePreview">
-                                                    <img id="vodafonePreviewImg" src="" alt="Preview">
-                                                    <div class="file-info">
-                                                        <span id="vodafoneFileName"></span>
-                                                        <button type="button" class="btn-remove" id="removeVodafone">
-                                                            <i class="fas fa-times"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="payment-fields">
-                                                <div class="form-row">
-                                                    <div class="form-group">
-                                                        <label for="vodafoneTransactionNumber">رقم التحويل (اختياري)</label>
-                                                        <input type="text" id="vodafoneTransactionNumber" 
-                                                               placeholder="رقم العملية إن وجد">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="vodafoneSenderNumber">الرقم المحول منه *</label>
-                                                        <input type="tel" id="vodafoneSenderNumber" 
-                                                               placeholder="مثال: 01012345678" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="payment-note">
-                                                <i class="fas fa-shield-alt"></i>
-                                                <p>سيتم تأكيد طلبك بعد التحقق من عملية التحويل خلال 1-3 ساعات عمل</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- انستا باي -->
-                                    <div class="payment-method-details" id="instapayDetails">
-                                        <div class="payment-info">
-                                            <div class="payment-instruction">
-                                                <i class="fas fa-info-circle"></i>
-                                                <p><strong>تعليمات الدفع:</strong> قم بالتحويل إلى الحساب أدناه ثم أرفع صورة إيصال التحويل</p>
-                                            </div>
-                                            
-                                            <div class="payment-number-box">
-                                                <h4><i class="fas fa-bolt"></i> انستا باي</h4>
-                                                <p>الرجاء التحويل إلى أحد الخيارات:</p>
-                                                <div class="payment-options-small">
-                                                    <div class="option">
-                                                        <span class="option-label">بالإيميل:</span>
-                                                        <span class="option-value">motor.fix@instapay.com</span>
-                                                    </div>
-                                                    <div class="option">
-                                                        <span class="option-label">بالاسم:</span>
-                                                        <span class="option-value">Motor Fix Store</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="upload-section">
-                                                <label class="upload-label">
-                                                    <i class="fas fa-receipt"></i> إرفع صورة إيصال التحويل
-                                                    <span class="required-star">*</span>
-                                                </label>
-                                                
-                                                <div class="file-upload-box" id="instapayUploadBox">
-                                                    <i class="fas fa-cloud-upload-alt"></i>
-                                                    <p>انقر لرفع صورة الإيصال</p>
-                                                    <small>JPG, PNG (حد أقصى 5MB)</small>
-                                                    <input type="file" id="instapayReceipt" accept="image/*" hidden>
-                                                </div>
-                                                
-                                                <div class="file-preview hidden" id="instapayPreview">
-                                                    <img id="instapayPreviewImg" src="" alt="Preview">
-                                                    <div class="file-info">
-                                                        <span id="instapayFileName"></span>
-                                                        <button type="button" class="btn-remove" id="removeInstapay">
-                                                            <i class="fas fa-times"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="payment-fields">
-                                                <div class="form-row">
-                                                    <div class="form-group">
-                                                        <label for="instapayTransactionNumber">رقم العملية (اختياري)</label>
-                                                        <input type="text" id="instapayTransactionNumber" 
-                                                               placeholder="رقم العملية إن وجد">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="instapaySenderMethod">طريقة التحويل *</label>
-                                                        <select id="instapaySenderMethod" required>
-                                                            <option value="">اختر الطريقة</option>
-                                                            <option value="email">بالإيميل</option>
-                                                            <option value="name">بالاسم</option>
-                                                            <option value="phone">بالرقم</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <label for="instapaySenderInfo">المعلومات المحول منها *</label>
-                                                    <input type="text" id="instapaySenderInfo" 
-                                                           placeholder="أدخل الإيميل أو الاسم أو الرقم" required>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="payment-note">
-                                                <i class="fas fa-clock"></i>
-                                                <p>مدة التأكيد: 1-3 ساعات عمل بعد رفع الإيصال</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Loading Spinner -->
-                                    <div class="loading-spinner hidden" id="paymentLoading">
-                                        <div class="spinner"></div>
-                                        <p>جاري التحقق من بيانات الدفع...</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="terms-agreement">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="terms" required>
-                                    <span>أوافق على <a href="./contact.html">الشروط والأحكام</a> و <a href="./contact.html">سياسة الخصوصية</a></span>
-                                </label>
-                            </div>
-                            
-                            <div class="step-buttons">
-                                <button type="button" class="btn btn-secondary prev-step" data-prev="step2">
-                                    <i class="fas fa-chevron-right"></i> السابق
-                                </button>
-                                <button type="submit" class="btn btn-primary confirm-order">
-                                    <i class="fas fa-check"></i> تأكيد الطلب
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                
-                <div class="order-summary-sidebar">
-                    <h3>ملخص طلبك</h3>
-                    <div class="sidebar-items" id="sidebarItems">
-                        <!-- Sidebar items will be loaded by JavaScript -->
-                    </div>
-                    <div class="sidebar-total">
-                        <span>المجموع:</span>
-                        <span id="sidebarTotal">0 جنيه</span>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="checkout-header">
+          <h1><i class="fas fa-credit-card"></i> إتمام الطلب</h1>
+          <p>أدخل معلوماتك لإتمام عملية الشراء</p>
         </div>
+
+        <div class="checkout-container">
+          <div class="checkout-steps">
+            <div class="step active">
+              <span class="step-number">1</span>
+              <span class="step-text">معلومات العميل</span>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span>
+              <span class="step-text">عنوان الشحن</span>
+            </div>
+            <div class="step">
+              <span class="step-number">3</span>
+              <span class="step-text">تأكيد الطلب</span>
+            </div>
+          </div>
+
+          <div class="checkout-content">
+            <form id="checkoutForm">
+              <!-- Step 1: Customer Information -->
+              <div class="checkout-step active" id="step1">
+                <h2>معلومات العميل</h2>
+                <div class="form-group">
+                  <label for="fullName">الاسم الكامل *</label>
+                  <input type="text" id="fullName" name="fullName" required />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="email">البريد الإلكتروني *</label>
+                    <input type="email" id="email" name="email" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">رقم الهاتف *</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      placeholder="مثال: 01012345678"
+                    />
+                  </div>
+                </div>
+
+                <div class="step-buttons">
+                  <button
+                    type="button"
+                    class="btn btn-primary next-step"
+                    data-next="step2"
+                  >
+                    التالي <i class="fas fa-chevron-left"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 2: Shipping Address -->
+              <div class="checkout-step" id="step2">
+                <h2>عنوان الشحن</h2>
+
+                <div class="form-group">
+                  <label for="address">العنوان التفصيلي *</label>
+                  <textarea
+                    id="address"
+                    name="address"
+                    rows="3"
+                    required
+                    placeholder="شارع - مبنى - شقة"
+                  ></textarea>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="governorate">المحافظة *</label>
+                    <select id="governorate" name="governorate" required>
+                      <option value="">اختر المحافظة</option>
+
+                      <option value="القاهرة">القاهرة</option>
+                      <option value="كفر الشيخ">كفر الشيخ</option>
+                      <option value="الجيزة">الجيزة</option>
+                      <option value="الإسكندرية">الإسكندرية</option>
+                      <option value="الفيوم">الفيوم</option>
+
+                      <option value="الدقهلية">الدقهلية</option>
+                      <option value="الشرقية">الشرقية</option>
+                      <option value="الغربية">الغربية</option>
+                      <option value="المنوفية">المنوفية</option>
+                      <option value="القليوبية">القليوبية</option>
+                      <option value="البحيرة">البحيرة</option>
+                      <option value="دمياط">دمياط</option>
+
+                      <option value="بورسعيد">بورسعيد</option>
+                      <option value="الإسماعيلية">الإسماعيلية</option>
+                      <option value="السويس">السويس</option>
+
+                      <option value="بني سويف">بني سويف</option>
+                      <option value="المنيا">المنيا</option>
+                      <option value="أسيوط">أسيوط</option>
+                      <option value="سوهاج">سوهاج</option>
+                      <option value="قنا">قنا</option>
+                      <option value="الأقصر">الأقصر</option>
+                      <option value="أسوان">أسوان</option>
+
+                      <option value="البحر الأحمر">البحر الأحمر</option>
+                      <option value="الوادي الجديد">الوادي الجديد</option>
+                      <option value="مطروح">مطروح</option>
+                      <option value="شمال سيناء">شمال سيناء</option>
+                      <option value="جنوب سيناء">جنوب سيناء</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="city">المدينة *</label>
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      required
+                      placeholder="مثال: مدينة كفر الشيخ"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="district">الحي/القرية *</label>
+                    <input
+                      type="text"
+                      id="district"
+                      name="district"
+                      required
+                      placeholder="مثال: حي الجامعة"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="postalCode">الرقم البريدي</label>
+                    <input
+                      type="text"
+                      id="postalCode"
+                      name="postalCode"
+                      placeholder="اختياري"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="landmark">أقرب معلم بارز</label>
+                  <input
+                    type="text"
+                    id="landmark"
+                    name="landmark"
+                    placeholder="مثال: أمام مسجد السلام"
+                  />
+                </div>
+
+                <div class="step-buttons">
+                  <button
+                    type="button"
+                    class="btn btn-secondary prev-step"
+                    data-prev="step1"
+                  >
+                    <i class="fas fa-chevron-right"></i> السابق
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary next-step"
+                    data-next="step3"
+                  >
+                    التالي <i class="fas fa-chevron-left"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 3: Order Confirmation -->
+              <div class="checkout-step" id="step3">
+                <h2>تأكيد الطلب</h2>
+
+                <div class="order-summary">
+                  <div class="summary-header">
+                    <h3>ملخص الطلب</h3>
+                    <a href="cart.html" class="edit-cart">تعديل السلة</a>
+                  </div>
+
+                  <div class="order-items" id="orderItems">
+                    <!-- Order items will be loaded by JavaScript -->
+                  </div>
+
+                  <div class="order-totals">
+                    <div class="total-row">
+                      <span>المجموع الفرعي:</span>
+                      <span id="orderSubtotal">0 جنيه</span>
+                    </div>
+                    <div class="total-row">
+                      <span>رسوم الشحن:</span>
+                      <span id="orderShipping">50 جنيه</span>
+                    </div>
+                    <div class="total-row">
+                      <span>الضريبة (14%):</span>
+                      <span id="orderTax">0 جنيه</span>
+                    </div>
+                    <div class="total-row grand-total">
+                      <span>المجموع الكلي:</span>
+                      <span id="orderTotal">50 جنيه</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="payment-methods">
+                  <h3>طريقة الدفع</h3>
+                  <div class="payment-options">
+                    <label class="payment-option">
+                      <input type="radio" name="payment" value="vodafone" />
+                      <span class="payment-icon"
+                        ><i class="fas fa-mobile-alt"></i
+                      ></span>
+                      <span class="payment-text">فودافون كاش</span>
+                    </label>
+                    <label class="payment-option">
+                      <input type="radio" name="payment" value="instapay" />
+                      <span class="payment-icon"
+                        ><i class="fas fa-bolt"></i
+                      ></span>
+                      <span class="payment-text">انستا باي</span>
+                    </label>
+                    <label class="payment-option">
+                      <input type="radio" name="payment" value="cash" checked />
+                      <span class="payment-icon"
+                        ><i class="fas fa-money-bill-wave"></i
+                      ></span>
+                      <span class="payment-text">الدفع عند الاستلام</span>
+                    </label>
+                  </div>
+
+                  <!-- Payment Details Section -->
+                  <div class="payment-details hidden" id="paymentDetails">
+                    <!-- فودافون كاش -->
+                    <div class="payment-method-details" id="vodafoneDetails">
+                      <div class="payment-info">
+                        <div class="payment-instruction">
+                          <i class="fas fa-info-circle"></i>
+                          <p>
+                            <strong>تعليمات الدفع:</strong> قم بتحويل المبلغ إلى
+                            الرقم أدناه ثم أرفع صورة إيصال التحويل
+                          </p>
+                        </div>
+
+                        <div class="payment-number-box">
+                          <h4><i class="fas fa-mobile-alt"></i> فودافون كاش</h4>
+                          <p>الرجاء التحويل إلى الرقم التالي:</p>
+                          <div class="payment-number">01013706142</div>
+                          <p>اسم المستلم: <strong>Motor Fix</strong></p>
+                        </div>
+
+                        <div class="upload-section">
+                          <label class="upload-label">
+                            <i class="fas fa-receipt"></i> إرفع صورة إيصال
+                            التحويل
+                            <span class="required-star">*</span>
+                          </label>
+
+                          <div class="file-upload-box" id="vodafoneUploadBox">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>انقر لرفع صورة الإيصال</p>
+                            <small>JPG, PNG (حد أقصى 5MB)</small>
+                            <input
+                              type="file"
+                              id="vodafoneReceipt"
+                              accept="image/*"
+                              hidden
+                            />
+                          </div>
+
+                          <div class="file-preview hidden" id="vodafonePreview">
+                            <img id="vodafonePreviewImg" src="" alt="Preview" />
+                            <div class="file-info">
+                              <span id="vodafoneFileName"></span>
+                              <button
+                                type="button"
+                                class="btn-remove"
+                                id="removeVodafone"
+                              >
+                                <i class="fas fa-times"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="payment-fields">
+                          <div class="form-row">
+                            <div class="form-group">
+                              <label for="vodafoneTransactionNumber"
+                                >رقم التحويل (اختياري)</label
+                              >
+                              <input
+                                type="text"
+                                id="vodafoneTransactionNumber"
+                                placeholder="رقم العملية إن وجد"
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="vodafoneSenderNumber"
+                                >الرقم المحول منه *</label
+                              >
+                              <input
+                                type="tel"
+                                id="vodafoneSenderNumber"
+                                placeholder="مثال: 01012345678"
+                                required
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="payment-note">
+                          <i class="fas fa-shield-alt"></i>
+                          <p>
+                            سيتم تأكيد طلبك بعد التحقق من عملية التحويل خلال 1-3
+                            ساعات عمل
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- انستا باي -->
+                    <div class="payment-method-details" id="instapayDetails">
+                      <div class="payment-info">
+                        <div class="payment-instruction">
+                          <i class="fas fa-info-circle"></i>
+                          <p>
+                            <strong>تعليمات الدفع:</strong> قم بالتحويل إلى
+                            الحساب أدناه ثم أرفع صورة إيصال التحويل
+                          </p>
+                        </div>
+
+                        <div class="payment-number-box">
+                          <h4><i class="fas fa-bolt"></i> انستا باي</h4>
+                          <p>الرجاء التحويل إلى أحد الخيارات:</p>
+                          <div class="payment-options-small">
+                            <div class="option">
+                              <span class="option-label">بالإيميل:</span>
+                              <span class="option-value"
+                                >motor.fix@instapay.com</span
+                              >
+                            </div>
+                            <div class="option">
+                              <span class="option-label">بالاسم:</span>
+                              <span class="option-value">Motor Fix Store</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="upload-section">
+                          <label class="upload-label">
+                            <i class="fas fa-receipt"></i> إرفع صورة إيصال
+                            التحويل
+                            <span class="required-star">*</span>
+                          </label>
+
+                          <div class="file-upload-box" id="instapayUploadBox">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>انقر لرفع صورة الإيصال</p>
+                            <small>JPG, PNG (حد أقصى 5MB)</small>
+                            <input
+                              type="file"
+                              id="instapayReceipt"
+                              accept="image/*"
+                              hidden
+                            />
+                          </div>
+
+                          <div class="file-preview hidden" id="instapayPreview">
+                            <img id="instapayPreviewImg" src="" alt="Preview" />
+                            <div class="file-info">
+                              <span id="instapayFileName"></span>
+                              <button
+                                type="button"
+                                class="btn-remove"
+                                id="removeInstapay"
+                              >
+                                <i class="fas fa-times"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="payment-fields">
+                          <div class="form-row">
+                            <div class="form-group">
+                              <label for="instapayTransactionNumber"
+                                >رقم العملية (اختياري)</label
+                              >
+                              <input
+                                type="text"
+                                id="instapayTransactionNumber"
+                                placeholder="رقم العملية إن وجد"
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="instapaySenderMethod"
+                                >طريقة التحويل *</label
+                              >
+                              <select id="instapaySenderMethod" required>
+                                <option value="">اختر الطريقة</option>
+                                <option value="email">بالإيميل</option>
+                                <option value="name">بالاسم</option>
+                                <option value="phone">بالرقم</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="instapaySenderInfo"
+                              >المعلومات المحول منها *</label
+                            >
+                            <input
+                              type="text"
+                              id="instapaySenderInfo"
+                              placeholder="أدخل الإيميل أو الاسم أو الرقم"
+                              required
+                            />
+                          </div>
+                        </div>
+
+                        <div class="payment-note">
+                          <i class="fas fa-clock"></i>
+                          <p>مدة التأكيد: 1-3 ساعات عمل بعد رفع الإيصال</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Loading Spinner -->
+                    <div class="loading-spinner hidden" id="paymentLoading">
+                      <div class="spinner"></div>
+                      <p>جاري التحقق من بيانات الدفع...</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="terms-agreement">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="terms" required />
+                    <span
+                      >أوافق على <a href="./contact.html">الشروط والأحكام</a> و
+                      <a href="./contact.html">سياسة الخصوصية</a></span
+                    >
+                  </label>
+                </div>
+
+                <div class="step-buttons">
+                  <button
+                    type="button"
+                    class="btn btn-secondary prev-step"
+                    data-prev="step2"
+                  >
+                    <i class="fas fa-chevron-right"></i> السابق
+                  </button>
+                  <button type="submit" class="btn btn-primary confirm-order">
+                    <i class="fas fa-check"></i> تأكيد الطلب
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="order-summary-sidebar">
+            <h3>ملخص طلبك</h3>
+            <div class="sidebar-items" id="sidebarItems">
+              <!-- Sidebar items will be loaded by JavaScript -->
+            </div>
+            <div class="sidebar-total">
+              <span>المجموع:</span>
+              <span id="sidebarTotal">0 جنيه</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Motor Fix</h3>
-                    <p>متجرك الموثوق لقطع غيار السيارات الأصلية بأسعار تنافسية وخدمة مميزة في مصر.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>روابط سريعة</h4>
-                    <ul>
-                        <li><a href="../index.html">الرئيسية</a></li>
-                        <li><a href="categories.html">التصنيفات</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-                        <li><a href="about.html">عن الشركة</a></li>
-                        <li><a href="contact.html">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>سياسات</h4>
-                    <ul>
-                        <li><a href="contact.html">سياسة الإرجاع</a></li>
-                        <li><a href="contact.html" class="active">الشروط والأحكام</a></li>
-                        <li><a href="contact.html">سياسة الخصوصية</a></li>
-                        <li><a href="contact.html">الدعم الفني</a></li>
-                        <li><a href="contact.html">الأسئلة الشائعة</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>اتصل بنا</h4>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>كفر الشيخ - مصر</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>01013706142</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>abdelkader@gmail.com</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>جميع الحقوق محفوظة &copy; <span class="current-year">2026</span> Motor Fix</p>
-            </div>
-            
-            <p class="developer-credit">
-                تطوير 
-                <a href="https://api.whatsapp.com/send?phone=201013706142" target="_blank" class="developer-link">
-                    Abdelkader Mohamed &
-                </a> 
-                <a href="https://api.whatsapp.com/send?phone=201010942959" target="_blank" class="developer-link">
-                    Ahmed Nada
-                </a>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>Motor Fix</h3>
+            <p>
+              متجرك الموثوق لقطع غيار السيارات الأصلية بأسعار تنافسية وخدمة
+              مميزة في مصر.
             </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>روابط سريعة</h4>
+            <ul>
+              <li><a href="../index.html">الرئيسية</a></li>
+              <li><a href="categories.html">التصنيفات</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="about.html">عن الشركة</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>سياسات</h4>
+            <ul>
+              <li><a href="contact.html">سياسة الإرجاع</a></li>
+              <li><a href="contact.html" class="active">الشروط والأحكام</a></li>
+              <li><a href="contact.html">سياسة الخصوصية</a></li>
+              <li><a href="contact.html">الدعم الفني</a></li>
+              <li><a href="contact.html">الأسئلة الشائعة</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>اتصل بنا</h4>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>كفر الشيخ - مصر</span>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>01013706142</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <span>abdelkader@gmail.com</span>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <p>
+            جميع الحقوق محفوظة &copy;
+            <span class="current-year">2026</span> Motor Fix
+          </p>
+        </div>
+
+        <p class="developer-credit">
+          تطوير
+          <a
+            href="https://api.whatsapp.com/send?phone=201013706142"
+            target="_blank"
+            class="developer-link"
+          >
+            Abdelkader Mohamed &
+          </a>
+          <a
+            href="https://api.whatsapp.com/send?phone=201010942959"
+            target="_blank"
+            class="developer-link"
+          >
+            Ahmed Nada
+          </a>
+        </p>
+      </div>
     </footer>
 
     <script src="../js/checkout.js"></script>
-</body>
+  </body>
 </html>

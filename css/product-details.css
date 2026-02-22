@@ -93,11 +93,15 @@
             background-color: var(--pure-black);
         }
 
+        .cart-icon,
+        .favorite-icon {
+            position: relative;
+        }
+
         .cart-icon a,
         .favorite-icon a {
             display: flex;
             align-items: center;
-            position: relative;
         }
 
         .cart-count,
@@ -391,6 +395,7 @@
             font-size: 1.1rem;
             color: var(--text-primary);
             -moz-appearance: textfield;
+            appearance: textfield;
         }
 
         .quantity-input::-webkit-outer-spin-button,

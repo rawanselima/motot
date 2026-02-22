@@ -8,6 +8,7 @@ let instapayReceiptFile = null;
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Checkout page loaded');
     updateCartCount();
+    updateFavoriteCount();
     loadOrderSummary();
     setupCheckoutSteps();
     setupFormValidation();
@@ -874,10 +875,20 @@ function getPaymentMethodName(method) {
 
 // Update cart count
 function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     const cartCountElements = document.querySelectorAll('.cart-count');
     cartCountElements.forEach(element => {
         element.textContent = cartCount;
+    });
+}
+
+// Update favorite count
+function updateFavoriteCount() {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const favoriteCountElements = document.querySelectorAll(".favorite-count");
+    favoriteCountElements.forEach((element) => {
+        element.textContent = favorites.length;
     });
 }
 

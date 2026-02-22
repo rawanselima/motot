@@ -4,6 +4,7 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 // DOM Elements
 document.addEventListener('DOMContentLoaded', function() {
     updateCartCount();
+    updateFavoriteCount();
     loadCartItems();
     setupMobileMenu();
     
@@ -172,6 +173,7 @@ function updateCartSummary() {
 function updateCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
+    updateFavoriteCount(); // Call updateFavoriteCount here as well
 }
 
 // Update cart count in header
@@ -180,6 +182,15 @@ function updateCartCount() {
     const cartCountElements = document.querySelectorAll('.cart-count');
     cartCountElements.forEach(element => {
         element.textContent = cartCount;
+    });
+}
+
+// Update favorite count
+function updateFavoriteCount() {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const favoriteCountElements = document.querySelectorAll(".favorite-count");
+    favoriteCountElements.forEach((element) => {
+        element.textContent = favorites.length;
     });
 }
 

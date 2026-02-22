@@ -1,6 +1,7 @@
 // Contact page functionality
 document.addEventListener('DOMContentLoaded', function() {
     updateCartCount();
+    updateFavoriteCount();
     setupMobileMenu();
     setupContactForm();
     setupFAQ();
@@ -173,6 +174,15 @@ function updateCartCount() {
     const cartCountElements = document.querySelectorAll('.cart-count');
     cartCountElements.forEach(element => {
         element.textContent = cartCount;
+    });
+}
+
+// Update favorite count
+function updateFavoriteCount() {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const favoriteCountElements = document.querySelectorAll(".favorite-count");
+    favoriteCountElements.forEach((element) => {
+        element.textContent = favorites.length;
     });
 }
 

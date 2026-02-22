@@ -70,13 +70,13 @@ body {
 .logo {
   display: flex;
   align-items: center;
+
 }
 
 .logo-img {
   height: 50px;
-  width: auto;
-  max-width: 200px;
-  object-fit: contain;
+  width: 150px;
+  object-fit: cover;
   transition: var(--transition);
 }
 
@@ -127,10 +127,12 @@ body {
   background-color: var(--primary-color);
   color: var(--light-color);
   font-size: 0.7rem;
-  padding: 2px 5px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  min-width: 18px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-menu-btn {

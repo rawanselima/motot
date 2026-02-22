@@ -228,20 +228,21 @@ ul {
 }
 
 .cart-icon,
-.user-icon {
+.favorite-icon {
     position: relative;
 }
 
-.cart-count {
+.cart-count,
+.favorite-count {
     position: absolute;
     top: -8px;
-    left: -8px;
+    right: -8px;
     background-color: var(--primary-color);
     color: var(--light-color);
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: center;

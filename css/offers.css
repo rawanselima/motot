@@ -180,9 +180,11 @@
 
 /* Offers Hero */
 .offers-hero {
-  background: #000000;
-  padding: 80px 0;
-  color: var(--light-color);
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0;
+  color: #ffffff !important;
   text-align: center;
   position: relative;
   overflow: hidden;

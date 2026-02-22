@@ -8,8 +8,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <!-- Main Favicon -->
+    <link rel="stylesheet" href="css/index.css" />
+    <!-- Favicons -->
     <link rel="shortcut icon" href="favIcon/favicon.ico" type="image/x-icon" />
+
     <link
       rel="icon"
       href="favIcon/favicon-16x16.png"
@@ -39,103 +41,86 @@
       sizes="512x512"
       href="favIcon/android-chrome-512x512.png"
     />
-    <link rel="stylesheet" href="./css/index.css" />
+    <script src="js/index.js" defer></script>
+
   </head>
   <body>
-    <!-- Header -->
     <header class="header">
       <div class="container">
         <nav class="navbar">
           <div class="logo">
-            <a href="index.html">
-              <img
-                src="./assets/images/logo.png"
-                alt="Motor Fix"
-                class="logo-img"
-              />
-            </a>
+            <a href="index.html"
+              ><img src="assets/images/logo.png" alt="Motor Fix" class="logo-img"
+            /></a>
           </div>
-
           <ul class="nav-links">
-            <li><a href="/index.html" class="active">الرئيسية</a></li>
-            <li><a href="/html/categories.html">التصنيفات</a></li>
-            <li><a href="/html/products.html">المنتجات</a></li>
-            <li><a href="/html/offers.html">العروض</a></li>
-            <li><a href="/html/about.html">عن الشركة</a></li>
-            <li><a href="/html/contact.html">اتصل بنا</a></li>
+            <li><a href="index.html" class="active">الرئيسية</a></li>
+            <li><a href="html/categories.html">التصنيفات</a></li>
+            <li><a href="html/products.html">المنتجات</a></li>
+            <li><a href="html/offers.html">العروض</a></li>
+            <li><a href="html/about.html">عن الشركة</a></li>
+            <li><a href="html/contact.html">اتصل بنا</a></li>
             <li class="cart-icon">
-              <a href="/html/cart.html">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
-              </a>
+              <a href="html/cart.html"
+                ><i class="fas fa-shopping-cart"></i
+                ><span class="cart-count">0</span></a
+              >
             </li>
             <li class="favorite-icon">
-              <a href="/html/fav.html">
-                <i class="fas fa-heart"></i>
-                <span class="favorite-count">0</span>
-              </a>
+              <a href="html/fav.html"
+                ><i class="fas fa-heart"></i
+                ><span class="favorite-count">0</span></a
+              >
             </li>
           </ul>
-
-          <div class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-          </div>
+          <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
         </nav>
       </div>
     </header>
 
-    <!-- Hero Section with Moving Icons -->
     <section class="hero-section">
       <div class="moving-icons">
-        <i class="fas fa-car moving-icon"></i>
-        <i class="fas fa-tools moving-icon"></i>
-        <i class="fas fa-oil-can moving-icon"></i>
-        <i class="fas fa-car-battery moving-icon"></i>
-        <i class="fas fa-cog moving-icon"></i>
-        <i class="fas fa-wrench moving-icon"></i>
-        <i class="fas fa-gas-pump moving-icon"></i>
-        <i class="fas fa-engine moving-icon"></i>
+        <i class="fas fa-car moving-icon"></i
+        ><i class="fas fa-tools moving-icon"></i
+        ><i class="fas fa-oil-can moving-icon"></i>
+        <i class="fas fa-car-battery moving-icon"></i
+        ><i class="fas fa-cog moving-icon"></i
+        ><i class="fas fa-wrench moving-icon"></i>
+        <i class="fas fa-gas-pump moving-icon"></i
+        ><i class="fas fa-engine moving-icon"></i>
       </div>
       <div class="container">
         <div class="hero-content">
           <h1>Motor Fix - قطع غيار السيارات الأصلية</h1>
-          <p>
-            أكبر متجر إلكتروني متخصص في بيع قطع غيار السيارات في مصر بأسعار
-            تنافسية وخدمة مميزة
-          </p>
+          <p>أكبر متجر إلكتروني متخصص في بيع قطع غيار السيارات في مصر</p>
           <div class="hero-stats">
             <div class="stat-item">
-              <span class="stat-number">5000+</span>
-              <span class="stat-label">قطعة غيار</span>
+              <span class="stat-number">5000+</span
+              ><span class="stat-label">قطعة غيار</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">50+</span>
-              <span class="stat-label">ماركة عالمية</span>
+              <span class="stat-number">50+</span
+              ><span class="stat-label">ماركة</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">10000+</span>
-              <span class="stat-label">عميل سعيد</span>
+              <span class="stat-number">10000+</span
+              ><span class="stat-label">عميل</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Products Section (منتجات مميزة) -->
     <section class="section-padding">
       <div class="container">
         <div class="section-header">
           <h2>منتجات مميزة</h2>
           <p>أحدث وأفضل قطع الغيار الأصلية</p>
         </div>
-
-        <div class="products-grid" id="productsGrid">
-          <!-- Products will be loaded here -->
-        </div>
+        <div class="products-grid" id="productsGrid"></div>
       </div>
     </section>
 
-    <!-- Products Section (منتجات حديثة) -->
     <section
       class="section-padding"
       style="background-color: var(--bg-primary)"
@@ -145,121 +130,95 @@
           <h2>منتجات حديثة</h2>
           <p>أحدث الواصلات من قطع الغيار</p>
         </div>
-
-        <div class="products-grid" id="newProductsGrid">
-          <!-- New Products will be loaded here -->
-        </div>
+        <div class="products-grid" id="newProductsGrid"></div>
       </div>
     </section>
 
-    <!-- Offers Section (Bundles) -->
     <section class="offers-section section-padding">
       <div class="container">
         <div class="section-header">
           <h2>عروض مميزة</h2>
           <p>باقات مخفضة تجمع أكتر من منتج مع بعض</p>
         </div>
-
-        <div class="bundles-grid" id="bundlesGrid">
-          <!-- Bundles will be loaded here -->
-        </div>
-
+        <div class="bundles-grid" id="bundlesGrid"></div>
         <div class="load-more-container">
-          <a href="./html/offers.html" class="btn-load-more">
-            <i class="fas fa-arrow-left"></i> مزيد من العروض
-          </a>
+          <a href="html/offers.html" class="btn-load-more"
+            ><i class="fas fa-arrow-left"></i> مزيد من العروض</a
+          >
         </div>
       </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features-section">
       <div class="container">
         <div class="features-grid">
           <div class="feature-item">
             <i class="fas fa-gem"></i>
             <h3>جودة مضمونة</h3>
-            <p>جميع القطع أصلية 100% مع ضمان</p>
+            <p>جميع القطع أصلية 100%</p>
           </div>
           <div class="feature-item">
             <i class="fas fa-truck"></i>
             <h3>توصيل مجاني</h3>
-            <p>لجميع الطلبات داخل القاهرة الكبرى</p>
+            <p>لجميع الطلبات داخل القاهرة</p>
           </div>
           <div class="feature-item">
             <i class="fas fa-headset"></i>
             <h3>دعم فني</h3>
-            <p>استشارات مجانية قبل الشراء</p>
+            <p>استشارات مجانية</p>
           </div>
           <div class="feature-item">
             <i class="fas fa-percent"></i>
             <h3>أفضل سعر</h3>
-            <p>أقل سعر في السوق مضمون</p>
+            <p>أقل سعر في السوق</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col">
             <h3>Motor Fix</h3>
-            <p>
-              متجرك الموثوق لقطع غيار السيارات الأصلية بأسعار تنافسية وخدمة
-              مميزة في مصر.
-            </p>
+            <p>متجرك الموثوق لقطع غيار السيارات الأصلية</p>
             <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-whatsapp"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a
+              ><a href="#"><i class="fab fa-twitter"></i></a
+              ><a href="#"><i class="fab fa-instagram"></i></a
+              ><a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
           </div>
-
           <div class="footer-col">
             <h4>روابط سريعة</h4>
             <ul>
-              <li><a href="../index.html">الرئيسية</a></li>
-              <li><a href="/html/categories.html">التصنيفات</a></li>
-              <li><a href="/html/products.html">المنتجات</a></li>
-              <li><a href="/html/offers.html">العروض</a></li>
-              <li><a href="/html/about.html">عن الشركة</a></li>
-              <li><a href="/html/contact.html">اتصل بنا</a></li>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="html/categories.html">التصنيفات</a></li>
+              <li><a href="html/products.html">المنتجات</a></li>
+              <li><a href="html/offers.html">العروض</a></li>
             </ul>
           </div>
-
           <div class="footer-col">
             <h4>سياسات</h4>
             <ul>
-              <li><a href="contact.html">سياسة الإرجاع</a></li>
-              <li><a href="contact.html">الشروط والأحكام</a></li>
-              <li><a href="contact.html">سياسة الخصوصية</a></li>
-              <li><a href="contact.html">الدعم الفني</a></li>
-              <li><a href="contact.html">الأسئلة الشائعة</a></li>
+              <li><a href="html/contact.html">سياسة الإرجاع</a></li>
+              <li><a href="html/contact.html">الشروط والأحكام</a></li>
+              <li><a href="html/contact.html">سياسة الخصوصية</a></li>
             </ul>
           </div>
-
           <div class="footer-col">
             <h4>اتصل بنا</h4>
             <ul class="contact-info">
               <li>
-                <i class="fas fa-map-marker-alt"></i>
-                <span>كفرالشيخ - مصر</span>
+                <i class="fas fa-map-marker-alt"></i><span>كفرالشيخ - مصر</span>
               </li>
+              <li><i class="fas fa-phone"></i><span>01013706142</span></li>
               <li>
-                <i class="fas fa-phone"></i>
-                <span>01013706142</span>
-              </li>
-              <li>
-                <i class="fas fa-envelope"></i>
-                <span>abdelkader@gmail.com</span>
+                <i class="fas fa-envelope"></i><span>abdelkader@gmail.com</span>
               </li>
             </ul>
           </div>
         </div>
-
         <div class="footer-bottom">
           <p>
             جميع الحقوق محفوظة &copy;
@@ -271,21 +230,19 @@
               href="https://api.whatsapp.com/send?phone=201013706142"
               target="_blank"
               class="developer-link"
+              >Abdelkader Mohamed &</a
             >
-              Abdelkader Mohamed &
-            </a>
             <a
               href="https://api.whatsapp.com/send?phone=201010942959"
               target="_blank"
               class="developer-link"
+              >Ahmed Nada</a
             >
-              Ahmed Nada
-            </a>
           </p>
         </div>
       </div>
     </footer>
 
-    <script src="./js/index.js"></script>
+    <!-- تم نقل السكريبت إلى ملف خارجي js/index.js -->
   </body>
 </html>

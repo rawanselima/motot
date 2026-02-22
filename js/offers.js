@@ -5,7 +5,7 @@ const bundlesData = [
     name: "باقة الصيانة الشاملة",
     category: "maintenance",
     type: "bundle",
-    image: "../assets/images/offers.png",
+    image: "../assets/images/cover.jpg",
     description: "كل ما تحتاجه لصيانة سيارتك في باقة واحدة",
     items: [
       { name: "فلتر زيت", qty: 1 },
@@ -29,7 +29,7 @@ const bundlesData = [
     name: "باقة نظام الفرامل الكامل",
     category: "bundle",
     type: "bundle",
-    image: "../assets/images/offers.png",
+    image: "../assets/images/cover.jpg",
     description: "طقم فرامل متكامل أمامي وخلفي",
     items: [
       { name: "لمبات LED أمامية", qty: 2 },
@@ -54,7 +54,7 @@ const bundlesData = [
     name: "باقة الكهرباء والإضاءة",
     category: "electrical",
     type: "bundle",
-    image: "../assets/images/offers.png",
+    image: "../assets/images/cover.jpg",
     description: "كل ما يخص النظام الكهربائي لسيارتك",
     items: [
       { name: "لمبات LED أمامية", qty: 2 },
@@ -79,7 +79,7 @@ const bundlesData = [
     name: "باقة العناية بالمحرك",
     category: "maintenance",
     type: "season",
-    image: "../assets/images/offers.png",
+    image: "../assets/images/cover.jpg",
     description: "عروض موسمية على قطع المحرك",
     items: [
       { name: "طقم سيور", qty: 1 },
@@ -103,7 +103,7 @@ const bundlesData = [
     name: "باقة التبريد والتكييف",
     category: "maintenance",
     type: "bundle",
-    image: "../assets/images/offers.png",
+    image: "../assets/images/cover.jpg",
     description: "صيانة كاملة لنظام التبريد",
     items: [
       { name: "راديتر", qty: 1 },
@@ -128,7 +128,7 @@ const bundlesData = [
     name: "باقة الدورة الشاملة",
     category: "season",
     type: "season",
-    image: "../assets/images/offers.png",
+    image: "../assets/images/cover.jpg",
     description: "عرض خاص للدورة الشاملة بمناسبة الربيع",
     items: [
       { name: "زيت محرك", qty: 1 },
@@ -153,7 +153,7 @@ const bundlesData = [
     name: "باقة العادم والشكمان",
     category: "maintenance",
     type: "bundle",
-    image: "../assets/images/offers.png",
+    image: "../assets/images/cover.jpg",
     description: "طقم عادم كامل مع الشكمان",
     items: [
       { name: "شكمان أمامي", qty: 1 },
@@ -177,7 +177,7 @@ const bundlesData = [
     name: "باقة التعليق والمساعدين",
     category: "bundle",
     type: "bundle",
-    image: "../assets/images/offers.png",
+    image: "../assets/images/cover.jpg",
     description: "طقم مساعدين أمامي وخلفي",
     items: [
       { name: "مساعدين أمامي", qty: 2 },
@@ -201,7 +201,7 @@ const bundlesData = [
     name: "باقة الصيف المميزة",
     category: "season",
     type: "season",
-    image: "../assets/images/offers.png",
+    image: "../assets/images/cover.jpg",
     description: "عرض الصيف على أنظمة التبريد",
     items: [
       { name: "غاز تكييف", qty: 2 },
@@ -225,7 +225,7 @@ const bundlesData = [
     name: "باقة الشتاء الدافئ",
     category: "season",
     type: "season",
-    image: "../assets/images/offers.png",
+    image: "../assets/images/cover.jpg",
     description: "عرض الشتاء للتدفئة والعزل",
     items: [
       { name: "سخان داخلي", qty: 1 },
@@ -253,6 +253,7 @@ let filteredBundles = [...bundlesData];
 let totalPages = Math.ceil(filteredBundles.length / ITEMS_PER_PAGE);
 
 // Favorites array
+let favoriteProducts = JSON.parse(localStorage.getItem("favorites")) || [];
 let favoriteBundles = JSON.parse(localStorage.getItem("favoriteBundles")) || [];
 
 // DOM Elements
@@ -703,7 +704,9 @@ function updateCartCount() {
 
 // Update favorite count
 function updateFavoriteCount() {
-  const totalFavorites = favoriteBundles.length;
+  const products = JSON.parse(localStorage.getItem("favorites")) || [];
+  const bundles = JSON.parse(localStorage.getItem("favoriteBundles")) || [];
+  const totalFavorites = products.length + bundles.length;
   const favoriteCountElements = document.querySelectorAll(".favorite-count");
   favoriteCountElements.forEach((element) => {
     element.textContent = totalFavorites;

@@ -85,6 +85,12 @@
         font-weight: 700;
         letter-spacing: 1px;
       }
+      .logo-img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+      }
       .nav-links {
         display: flex;
         gap: 25px;
@@ -633,7 +639,13 @@
       <div class="container">
         <nav class="navbar">
           <div class="logo">
-            <h1><a href="../index.html">Motor Fix</a></h1>
+            <a href="../index.html">
+              <img
+                src="../assets/images/logo.png"
+                alt="Motor Fix"
+                class="logo-img"
+              />
+            </a>
           </div>
           <ul class="nav-links">
             <li><a href="../index.html">الرئيسية</a></li>
@@ -822,11 +834,15 @@
           document
             .querySelectorAll(".cart-count")
             .forEach((el) => (el.textContent = cartTotal));
-          const favCount = favoriteProducts.length;
+          
+          const products = JSON.parse(localStorage.getItem("favorites")) || [];
+          const bundles = JSON.parse(localStorage.getItem("favoriteBundles")) || [];
+          const totalFav = products.length + bundles.length;
+          
           document
             .querySelectorAll(".favorite-count")
-            .forEach((el) => (el.textContent = favCount));
-          if (favCountHeader) favCountHeader.textContent = favCount;
+            .forEach((el) => (el.textContent = totalFav));
+          if (favCountHeader) favCountHeader.textContent = totalFav;
         }
 
         function showNotification(msg, type = "info") {
@@ -896,8 +912,10 @@
         }
 
         function loadFavorites() {
-          favoriteProducts =
-            JSON.parse(localStorage.getItem("favorites")) || [];
+          const products = JSON.parse(localStorage.getItem("favorites")) || [];
+          const bundles = JSON.parse(localStorage.getItem("favoriteBundles")) || [];
+          favoriteProducts = [...products, ...bundles];
+          
           if (favCountHeader)
             favCountHeader.textContent = favoriteProducts.length;
           updateAllCounts();
@@ -915,12 +933,15 @@
           }
 
           favGrid.innerHTML = favoriteProducts
-            .map(
-              (p) => `
+            .map((p) => {
+              const price = p.price || p.currentPrice || p.bundlePrice || 0;
+              const image = p.image || p.img || "";
+              const category = p.categoryName || p.category || "قطع غيار";
+              return `
                     <div class="fav-card" data-product-id="${p.id}">
-                        <div class="fav-card-badge">${p.categoryName || "قطع غيار"}</div>
+                        <div class="fav-card-badge">${category}</div>
                         <div class="fav-card-image">
-                            <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/300x200/cccccc/000000?text=MotorFix'">
+                            <img src="${image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/300x200/cccccc/000000?text=MotorFix'">
                             <div class="fav-card-actions">
                                 <button class="fav-action-btn remove" onclick="removeFav(${p.id})" data-tooltip="إزالة"><i class="fas fa-trash-alt"></i></button>
                                 <button class="fav-action-btn cart" onclick="addFavToCart(${p.id})" data-tooltip="أضف للسلة"><i class="fas fa-shopping-cart"></i></button>
@@ -928,11 +949,11 @@
                             </div>
                         </div>
                         <div class="fav-card-content">
-                            <div class="fav-card-category">${p.categoryName || "عام"}</div>
+                            <div class="fav-card-category">${category}</div>
                             <h3 class="fav-card-title">${p.name}</h3>
                             <div class="fav-card-price">
-                                <span class="current-price">${p.price} جنيه</span>
-                                ${p.oldPrice ? `<span class="old-price">${p.oldPrice} جنيه</span>` : ""}
+                                <span class="current-price">${price} جنيه</span>
+                                ${p.oldPrice || p.originalPrice ? `<span class="old-price">${p.oldPrice || p.originalPrice} جنيه</span>` : ""}
                             </div>
                             <div class="fav-card-meta">
                                 <div class="${p.inStock !== false ? "in-stock" : "out-of-stock"}">
@@ -943,82 +964,99 @@
                             </div>
                         </div>
                     </div>
-                `,
-            )
+                `;
+            })
             .join("");
         }
 
         // Global functions
         window.removeFav = function (productId) {
-          favoriteProducts = favoriteProducts.filter((p) => p.id !== productId);
-          localStorage.setItem("favorites", JSON.stringify(favoriteProducts));
+          let products = JSON.parse(localStorage.getItem("favorites")) || [];
+          let bundles = JSON.parse(localStorage.getItem("favoriteBundles")) || [];
+
+          const newProducts = products.filter((p) => p.id !== productId);
+          const newBundles = bundles.filter((b) => b.id !== productId);
+
+          localStorage.setItem("favorites", JSON.stringify(newProducts));
+          localStorage.setItem("favoriteBundles", JSON.stringify(newBundles));
+
           loadFavorites();
-          updateAllCounts();
           showNotification("تمت الإزالة من المفضلة", "info");
         };
 
         window.addFavToCart = function (productId) {
           let product = favoriteProducts.find((p) => p.id === productId);
-          if (!product) {
-            const samples = [
-              { id: 101, name: "فلتر زيت محرك", price: 120, image: "" },
-              { id: 102, name: "بواجي شرارة", price: 180, image: "" },
-            ];
-            product = samples.find((s) => s.id === productId);
-          }
           if (!product) return;
+
+          const price =
+            product.price || product.currentPrice || product.bundlePrice || 0;
+          const image = product.image || product.img || "";
+
           let cart = JSON.parse(localStorage.getItem("cart")) || [];
           const exist = cart.find((i) => i.id === productId);
-          if (exist) exist.quantity = (exist.quantity || 1) + 1;
-          else
+          if (exist) {
+            exist.quantity = (exist.quantity || 1) + 1;
+          } else {
             cart.push({
               id: product.id,
               name: product.name,
-              price: product.price,
+              price: price,
               quantity: 1,
-              image: product.image,
+              image: image,
+              type: product.type || "product",
             });
+          }
           localStorage.setItem("cart", JSON.stringify(cart));
           updateAllCounts();
           showNotification("تمت الإضافة إلى السلة", "success");
         };
 
         window.viewProd = function (id) {
-          alert("عرض تفاصيل المنتج رقم " + id);
+          // Check if it's a product or bundle
+          const item = favoriteProducts.find((p) => p.id === id);
+          if (item && item.type === "bundle") {
+            window.location.href = `offer-details.html?id=${id}`;
+          } else {
+            window.location.href = `product-details.html?id=${id}`;
+          }
         };
 
         window.clearAllFav = function () {
           if (favoriteProducts.length === 0) return;
-          if (confirm("تفريغ المفضلة؟")) {
-            favoriteProducts = [];
-            localStorage.setItem("favorites", JSON.stringify(favoriteProducts));
+          if (confirm("هل أنت متأكد من رغبتك في تفريغ قائمة المفضلة؟")) {
+            localStorage.setItem("favorites", JSON.stringify([]));
+            localStorage.setItem("favoriteBundles", JSON.stringify([]));
             loadFavorites();
-            updateAllCounts();
-            showNotification("تم تفريغ المفضلة", "success");
+            showNotification("تم تفريغ المفضلة بنجاح", "success");
           }
         };
 
         window.addAllToCart = function () {
           if (favoriteProducts.length === 0) {
-            showNotification("المفضلة فارغة", "error");
+            showNotification("قائمة المفضلة فارغة", "error");
             return;
           }
           let cart = JSON.parse(localStorage.getItem("cart")) || [];
           favoriteProducts.forEach((p) => {
+            const price = p.price || p.currentPrice || p.bundlePrice || 0;
+            const image = p.image || p.img || "";
             const exist = cart.find((i) => i.id === p.id);
-            if (exist) exist.quantity = (exist.quantity || 1) + 1;
-            else
+            if (exist) {
+              exist.quantity = (exist.quantity || 1) + 1;
+            } else {
               cart.push({
                 id: p.id,
                 name: p.name,
-                price: p.price,
+                price: price,
                 quantity: 1,
-                image: p.image,
+                image: image,
+                type: p.type || "product",
               });
+            }
           });
           localStorage.setItem("cart", JSON.stringify(cart));
           updateAllCounts();
-          showNotification("أضيفت جميع المنتجات إلى السلة", "success");
+          showNotification("تمت إضافة جميع المنتجات إلى السلة", "success");
         };
 
         if (clearBtn) clearBtn.addEventListener("click", clearAllFav);

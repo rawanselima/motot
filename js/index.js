@@ -1,11 +1,11 @@
 // Sample Products Data
 const productsData = [
   {
-    id: 1,
+    id: 101,
     name: "فلتر زيت محرك أصلي",
     category: "فلاتر",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "فلتر زيت عالي الجودة لجميع أنواع السيارات",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "فلتر زيت عالي الجودة لجميع أنواع السيارات - يحافظ على نظافة الزيت",
     originalPrice: 180,
     currentPrice: 120,
     rating: 4.8,
@@ -14,11 +14,11 @@ const productsData = [
     popular: true,
   },
   {
-    id: 2,
+    id: 102,
     name: "بواجي شرارة بلاتينيوم",
     category: "كهرباء",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "طقم بواجي بلاتينيوم 4 قطع - أداء عالي",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "طقم بواجي بلاتينيوم 4 قطع - أداء عالي واشعال قوي",
     originalPrice: 400,
     currentPrice: 320,
     rating: 4.9,
@@ -27,23 +27,24 @@ const productsData = [
     popular: true,
   },
   {
-    id: 3,
+    id: 103,
     name: "وسادات فرامل أمامية",
     category: "فرامل",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "طقم تيل فرامل أمامي أصلي - عالي الجودة",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "طقم تيل فرامل أمامي أصلي - عالي الجودة من شركة معروفة",
     originalPrice: 650,
     currentPrice: 520,
     rating: 4.7,
     reviews: 28,
     inStock: true,
+    popular: false,
   },
   {
-    id: 4,
+    id: 104,
     name: "بطارية سيارة 60 أمبير",
     category: "كهرباء",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "بطارية جافة 60 أمبير - عمر طويل",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "بطارية جافة 60 أمبير - عمر طويل وضمان سنتين",
     originalPrice: 950,
     currentPrice: 820,
     rating: 4.8,
@@ -52,39 +53,41 @@ const productsData = [
     popular: true,
   },
   {
-    id: 5,
+    id: 105,
     name: "زيت محرك تخليقي 4 لتر",
     category: "زيوت",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "زيت محرك تخليقي بالكامل 10W-40",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "زيت محرك تخليقي بالكامل 10W-40 - مناسب لمعظم السيارات",
     originalPrice: 450,
     currentPrice: 380,
     rating: 4.6,
     reviews: 67,
     inStock: true,
+    popular: false,
   },
   {
-    id: 6,
+    id: 106,
     name: "ماسحات زجاج أمامية",
     category: "اكسسوارات",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "طقم مساحات زجاج أمامي - مقاس 22 و20 بوصة",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "طقم مساحات زجاج أمامي - مقاس 22 و20 بوصة - مطاط طبيعي",
     originalPrice: 220,
     currentPrice: 150,
     rating: 4.5,
     reviews: 23,
     inStock: true,
+    popular: false,
   },
 ];
 
 // New Products Data
 const newProductsData = [
   {
-    id: 7,
+    id: 107,
     name: "فلتر هواء عالي الأداء",
     category: "فلاتر",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "فلتر هواء رياضي - قابل للغسيل",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "فلتر هواء رياضي - قابل للغسيل - يزيد من قوة المحرك",
     originalPrice: 350,
     currentPrice: 280,
     rating: 4.7,
@@ -93,64 +96,69 @@ const newProductsData = [
     popular: true,
   },
   {
-    id: 8,
+    id: 108,
     name: "طقم سيور محرك",
     category: "ميكانيكا",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "طقم سيور محرك كامل - جودة أصلية",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "طقم سيور محرك كامل (كاتينا + دينامو) - جودة أصلية",
     originalPrice: 850,
     currentPrice: 690,
     rating: 4.8,
     reviews: 22,
     inStock: true,
+    popular: false,
   },
   {
-    id: 9,
+    id: 109,
     name: "مضخة مياه",
     category: "تبريد",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "مضخة مياه أصلية - صناعة ألماني",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "مضخة مياه أصلية - صناعة ألماني - تمنع ارتفاع الحرارة",
     originalPrice: 1200,
     currentPrice: 980,
     rating: 4.9,
     reviews: 18,
     inStock: true,
+    popular: false,
   },
   {
-    id: 10,
+    id: 110,
     name: "طرمبة بنزين كهربائية",
     category: "وقود",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "طرمبة بنزين كهربائية - جودة عالية",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "طرمبة بنزين كهربائية - جودة عالية - ضغط مناسب",
     originalPrice: 950,
     currentPrice: 790,
     rating: 4.6,
     reviews: 12,
     inStock: true,
+    popular: false,
   },
   {
-    id: 11,
+    id: 111,
     name: "مفتاح دينامو",
     category: "كهرباء",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "مفتاح دينامو 120 أمبير - أصلي",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "مفتاح دينامو 120 أمبير - أصلي - يضمن شحن البطارية",
     originalPrice: 680,
     currentPrice: 550,
     rating: 4.5,
     reviews: 9,
     inStock: true,
+    popular: false,
   },
   {
-    id: 12,
+    id: 112,
     name: "رمان بلي أمامي",
     category: "عجل",
-    image: "./assets/images/car-ford-2-removebg-preview.png",
-    description: "طقم رمان بلي أمامي - ياباني",
+    image: "assets/images/car-ford-2-removebg-preview.png",
+    description: "طقم رمان بلي أمامي - ياباني - يدور بسلاسة",
     originalPrice: 580,
     currentPrice: 460,
     rating: 4.7,
     reviews: 14,
     inStock: true,
+    popular: false,
   },
 ];
 
@@ -160,7 +168,7 @@ const bundlesData = [
     id: 1,
     name: "باقة الصيانة الشاملة",
     category: "maintenance",
-    image: "./assets/images/cover.jpg",
+    image: "assets/images/cover.jpg",
     description: "كل ما تحتاجه لصيانة سيارتك في باقة واحدة",
     items: [
       { name: "فلتر زيت", qty: 1 },
@@ -182,7 +190,7 @@ const bundlesData = [
     id: 2,
     name: "باقة نظام الفرامل",
     category: "bundle",
-    image: "./assets/images/cover.jpg",
+    image: "assets/images/cover.jpg",
     description: "طقم فرامل متكامل أمامي وخلفي",
     items: [
       { name: "تيل فرامل أمامي", qty: 1 },
@@ -204,7 +212,7 @@ const bundlesData = [
     id: 3,
     name: "باقة الكهرباء والإضاءة",
     category: "electrical",
-    image: "./assets/images/cover.jpg",
+    image: "assets/images/cover.jpg",
     description: "كل ما يخص النظام الكهربائي لسيارتك",
     items: [
       { name: "لمبات LED أمامية", qty: 2 },
@@ -233,16 +241,16 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("Home page loaded");
   updateCartCount();
   updateFavoriteCount();
-  loadProducts(productsData, "productsGrid");
-  loadProducts(newProductsData, "newProductsGrid");
-  loadBundles(bundlesData, "bundlesGrid");
+  renderProducts(productsData, "productsGrid");
+  renderProducts(newProductsData, "newProductsGrid");
+  renderBundles(bundlesData, "bundlesGrid");
   updateYear();
   setupMobileMenu();
   setupEventListeners();
 });
 
 // Load products into grid
-function loadProducts(products, gridId) {
+function renderProducts(products, gridId) {
   const productsGrid = document.getElementById(gridId);
   if (!productsGrid) return;
 
@@ -271,7 +279,7 @@ function loadProducts(products, gridId) {
                     <div class="product-card" data-product-id="${product.id}">
                         ${popular}
                         <div class="product-image">
-                            <img src="${product.image}" alt="${product.name}">
+                            <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200/eee/000?text=MotorFix'">
                         </div>
                         <div class="product-content">
                             <span class="product-category">${product.category}</span>
@@ -295,6 +303,9 @@ function loadProducts(products, gridId) {
                                 <button class="btn btn-primary" onclick="addToCart(${product.id})">
                                     <i class="fas fa-cart-plus"></i> أضف للسلة
                                 </button>
+                                <a href="html/product-details.html?id=${product.id}" class="btn btn-outline" style="flex:0.5;">
+                                    <i class="fas fa-info-circle"></i> تفاصيل
+                                </a>
                                 <button class="btn btn-outline btn-favorite ${isFavorite ? "active" : ""}" 
                                         onclick="toggleFavorite(${product.id})">
                                     <i class="${favoriteIcon} fa-heart"></i>
@@ -308,7 +319,7 @@ function loadProducts(products, gridId) {
 }
 
 // Load bundles into grid
-function loadBundles(bundles, gridId) {
+function renderBundles(bundles, gridId) {
   const bundlesGrid = document.getElementById(gridId);
   if (!bundlesGrid) return;
 
@@ -356,7 +367,7 @@ function loadBundles(bundles, gridId) {
                     <div class="bundle-card" data-bundle-id="${bundle.id}">
                         ${save}
                         <div class="bundle-image">
-                            <img src="${bundle.image}" alt="${bundle.name}">
+                            <img src="${bundle.image}" alt="${bundle.name}" onerror="this.src='https://via.placeholder.com/300x200/eee/000?text=Bundle'">
                             <div class="bundle-items-preview">
                                 ${itemsPreview}
                                 ${moreItems}
@@ -384,6 +395,9 @@ function loadBundles(bundles, gridId) {
                                 <button class="btn btn-primary" onclick="addBundleToCart(${bundle.id})">
                                     <i class="fas fa-cart-plus"></i> أضف للسلة
                                 </button>
+                                <a href="html/offer-details.html?id=${bundle.id}" class="btn btn-outline" style="flex:0.5;">
+                                    <i class="fas fa-info-circle"></i> التفاصيل
+                                </a>
                                 <button class="btn btn-outline btn-favorite ${isFavorite ? "active" : ""}" 
                                         onclick="toggleBundleFavorite(${bundle.id})">
                                     <i class="${favoriteIcon} fa-heart"></i>
@@ -429,8 +443,8 @@ function toggleFavorite(productId) {
   updateFavoriteCount();
 
   //  update both grids in case the product appears in both
-  loadProducts(productsData, "productsGrid");
-  loadProducts(newProductsData, "newProductsGrid");
+  renderProducts(productsData, "productsGrid");
+  renderProducts(newProductsData, "newProductsGrid");
 }
 
 // Toggle bundle favorite
@@ -451,7 +465,7 @@ function toggleBundleFavorite(bundleId) {
   }
 
   updateFavoriteCount();
-  loadBundles(bundlesData, "bundlesGrid");
+  renderBundles(bundlesData, "bundlesGrid");
 }
 
 // Add to cart
@@ -552,6 +566,13 @@ function setupMobileMenu() {
     menuBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       navLinks.classList.toggle("active");
+    });
+    
+    // Close menu when clicking any link inside
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+        });
     });
   }
 

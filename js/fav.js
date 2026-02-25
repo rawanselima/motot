@@ -1,473 +1,256 @@
-// Favorites array
-let favoriteProducts = JSON.parse(localStorage.getItem("favorites")) || [];
 
-// DOM Elements
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Favorites page loaded");
-  console.log("Favorites in localStorage:", favoriteProducts);
-  updateCartCount();
-  updateFavoriteCount();
-  loadFavorites();
-  setupEventListeners();
-  updateYear();
-  setupMobileMenu();
-});
+        let favoriteProducts =
+          JSON.parse(localStorage.getItem("favorites")) || [];
 
-// Load favorites
-function loadFavorites() {
-  const favGrid = document.getElementById("favoritesGrid"); // تغيير من favGrid إلى favoritesGrid
-  const favEmpty = document.getElementById("emptyFavorites"); // تغيير من favEmpty إلى emptyFavorites
-  const recentlyViewed = document.getElementById("recentlyViewed");
-  const favCountSpan = document.getElementById("favCount"); // هذا الـ ID غير موجود في HTML
+        const favGrid = document.getElementById("favoritesGrid");
+        const emptyFav = document.getElementById("emptyFavorites");
+        const clearBtn = document.getElementById("clearFavoritesBtn");
+        const addAllBtn = document.getElementById("addAllToCartBtn");
+        const favCountHeader = document.getElementById("favCountHeader");
 
-  if (!favGrid) {
-    console.error("favoritesGrid not found");
-    return;
-  }
+        function updateAllCounts() {
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          const cartTotal = cart.reduce((acc, i) => acc + (i.quantity || 1), 0);
+          document
+            .querySelectorAll(".cart-count")
+            .forEach((el) => (el.textContent = cartTotal));
+          
+          const products = JSON.parse(localStorage.getItem("favorites")) || [];
+          const bundles = JSON.parse(localStorage.getItem("favoriteBundles")) || [];
+          const totalFav = products.length + bundles.length;
+          
+          document
+            .querySelectorAll(".favorite-count")
+            .forEach((el) => (el.textContent = totalFav));
+          if (favCountHeader) favCountHeader.textContent = totalFav;
+        }
 
-  // Update header count if element exists
-  const favoritesHeader = document.querySelector(
-    ".favorites-header .favorites-title span",
-  );
-  if (favoritesHeader) {
-    favoritesHeader.textContent = favoriteProducts.length;
-  }
+        function showNotification(msg, type = "info") {
+          const n = document.querySelector(".notification");
+          if (n) n.remove();
+          const notif = document.createElement("div");
+          notif.className = `notification ${type}`;
+          notif.innerHTML = `<i class="fas ${type === "success" ? "fa-check-circle" : type === "error" ? "fa-exclamation-circle" : "fa-info-circle"}"></i><span>${msg}</span>`;
+          document.body.appendChild(notif);
+          setTimeout(() => {
+            notif.style.animation = "slideOut 0.3s";
+            setTimeout(() => notif.remove(), 300);
+          }, 3000);
+        }
 
-  // Show/hide action buttons based on favorites count
-  const clearBtn = document.getElementById("clearFavoritesBtn");
-  const addAllBtn = document.getElementById("addAllToCartBtn");
+        // Sample data if empty (for attractive preview)
+        if (favoriteProducts.length === 0) {
+          favoriteProducts = [
+            {
+              id: 101,
+              name: "فلتر زيت محرك",
+              price: 120,
+              oldPrice: 150,
+              image:
+                "https://via.placeholder.com/300x200/000000/ffffff?text=فلتر+زيت",
+              categoryName: "فلتر",
+              inStock: true,
+              rating: 4.5,
+              reviews: 23,
+            },
+            {
+              id: 102,
+              name: "بواجي شرارة (4 حبات)",
+              price: 180,
+              image:
+                "https://via.placeholder.com/300x200/333333/ffffff?text=بواجي",
+              categoryName: "كهرباء",
+              inStock: true,
+              rating: 4.8,
+              reviews: 45,
+            },
+            {
+              id: 103,
+              name: "ماسحات زجاج أمامي",
+              price: 220,
+              oldPrice: 270,
+              image:
+                "https://via.placeholder.com/300x200/111111/ffffff?text=ماسحات",
+              categoryName: "اكسسوارات",
+              inStock: false,
+              rating: 4.2,
+              reviews: 12,
+            },
+            {
+              id: 104,
+              name: "لمبات LED أمامية",
+              price: 350,
+              image:
+                "https://via.placeholder.com/300x200/222222/ffffff?text=LED",
+              categoryName: "إضاءة",
+              inStock: true,
+              rating: 5.0,
+              reviews: 8,
+            },
+          ];
+          localStorage.setItem("favorites", JSON.stringify(favoriteProducts));
+        }
 
-  if (favoriteProducts.length === 0) {
-    // Show empty state
-    favGrid.innerHTML = "";
-    if (favEmpty) favEmpty.style.display = "block";
-    if (recentlyViewed) recentlyViewed.style.display = "none";
-    if (clearBtn) clearBtn.style.display = "none";
-    if (addAllBtn) addAllBtn.style.display = "none";
-    return;
-  } else {
-    // Hide empty state, show actions
-    if (favEmpty) favEmpty.style.display = "none";
-    if (recentlyViewed) recentlyViewed.style.display = "block";
-    if (clearBtn) clearBtn.style.display = "inline-flex";
-    if (addAllBtn) addAllBtn.style.display = "inline-flex";
-  }
+        function loadFavorites() {
+          const products = JSON.parse(localStorage.getItem("favorites")) || [];
+          const bundles = JSON.parse(localStorage.getItem("favoriteBundles")) || [];
+          favoriteProducts = [...products, ...bundles];
+          
+          if (favCountHeader)
+            favCountHeader.textContent = favoriteProducts.length;
+          updateAllCounts();
 
-  // Load favorites grid
-  favGrid.innerHTML = favoriteProducts
-    .map(
-      (product) => `
-        <div class="fav-card" data-product-id="${product.id}">
-            <div class="fav-card-badge">${product.categoryName || "قطع غيار"}</div>
-            <div class="fav-card-image">
-                <img src="${product.image}" alt="${product.name}" 
-                     onerror="this.src='https://via.placeholder.com/300x200/333333/ffffff?text=${encodeURIComponent(product.name)}'">
-                <div class="fav-card-actions">
-                    <button class="fav-action-btn remove" onclick="removeFromFavorites(${product.id})" data-tooltip="إزالة">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                    <button class="fav-action-btn cart" onclick="addToCart(${product.id})" data-tooltip="أضف للسلة">
-                        <i class="fas fa-shopping-cart"></i>
-                    </button>
-                    <button class="fav-action-btn" onclick="viewProduct(${product.id})" data-tooltip="عرض التفاصيل">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="fav-card-content">
-                <div class="fav-card-category">${product.categoryName || "عام"}</div>
-                <h3 class="fav-card-title">${product.name}</h3>
-                <div class="fav-card-price">
-                    <span class="current-price">${product.price} جنيه</span>
-                    ${product.oldPrice ? `<span class="old-price">${product.oldPrice} جنيه</span>` : ""}
-                </div>
-                <div class="fav-card-meta">
-                    <div class="${product.inStock !== false ? "in-stock" : "out-of-stock"}">
-                        <i class="fas ${product.inStock !== false ? "fa-check-circle" : "fa-times-circle"}"></i>
-                        <span>${product.inStock !== false ? "متوفر" : "غير متوفر"}</span>
+          if (favoriteProducts.length === 0) {
+            if (favGrid) favGrid.innerHTML = "";
+            if (emptyFav) emptyFav.style.display = "block";
+            if (clearBtn) clearBtn.style.display = "none";
+            if (addAllBtn) addAllBtn.style.display = "none";
+            return;
+          } else {
+            if (emptyFav) emptyFav.style.display = "none";
+            if (clearBtn) clearBtn.style.display = "inline-flex";
+            if (addAllBtn) addAllBtn.style.display = "inline-flex";
+          }
+
+          favGrid.innerHTML = favoriteProducts
+            .map((p) => {
+              const price = p.price || p.currentPrice || p.bundlePrice || 0;
+              const image = p.image || p.img || "";
+              const category = p.categoryName || p.category || "قطع غيار";
+              return `
+                    <div class="fav-card" data-product-id="${p.id}">
+                        <div class="fav-card-badge">${category}</div>
+                        <div class="fav-card-image">
+                            <img src="${image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/300x200/cccccc/000000?text=MotorFix'">
+                            <div class="fav-card-actions">
+                                <button class="fav-action-btn remove" onclick="removeFav(${p.id})" data-tooltip="إزالة"><i class="fas fa-trash-alt"></i></button>
+                                <button class="fav-action-btn cart" onclick="addFavToCart(${p.id})" data-tooltip="أضف للسلة"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="fav-action-btn" onclick="viewProd(${p.id})" data-tooltip="عرض التفاصيل"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="fav-card-content">
+                            <div class="fav-card-category">${category}</div>
+                            <h3 class="fav-card-title">${p.name}</h3>
+                            <div class="fav-card-price">
+                                <span class="current-price">${price} جنيه</span>
+                                ${p.oldPrice || p.originalPrice ? `<span class="old-price">${p.oldPrice || p.originalPrice} جنيه</span>` : ""}
+                            </div>
+                            <div class="fav-card-meta">
+                                <div class="${p.inStock !== false ? "in-stock" : "out-of-stock"}">
+                                    <i class="fas ${p.inStock !== false ? "fa-check-circle" : "fa-times-circle"}"></i>
+                                    <span>${p.inStock !== false ? "متوفر" : "غير متوفر"}</span>
+                                </div>
+                                ${p.rating ? `<div class="fav-card-rating"><i class="fas fa-star"></i><span>${p.rating} (${p.reviews || 0})</span></div>` : ""}
+                            </div>
+                        </div>
                     </div>
-                    ${
-                      product.rating
-                        ? `
-                    <div class="fav-card-rating">
-                        <i class="fas fa-star"></i>
-                        <span>${product.rating} (${product.reviews || 0})</span>
-                    </div>
-                    `
-                        : ""
-                    }
-                </div>
-            </div>
-        </div>
-    `,
-    )
-    .join("");
+                `;
+            })
+            .join("");
+        }
 
-  // Load recently viewed products
-  loadRecentlyViewed();
-}
+        // Global functions
+        window.removeFav = function (productId) {
+          let products = JSON.parse(localStorage.getItem("favorites")) || [];
+          let bundles = JSON.parse(localStorage.getItem("favoriteBundles")) || [];
 
-// Load recently viewed products
-function loadRecentlyViewed() {
-  const recentlyGrid = document.getElementById("recentlyViewedGrid");
-  if (!recentlyGrid) return;
+          const newProducts = products.filter((p) => p.id !== productId);
+          const newBundles = bundles.filter((b) => b.id !== productId);
 
-  // Sample recently viewed products
-  const recentlyViewed = [
-    {
-      id: 201,
-      name: "فلتر زيت محرك",
-      price: 85,
-      image: "../assets/images/car-ford-2-removebg-preview.png",
-    },
-    {
-      id: 202,
-      name: "بواجي شرارة",
-      price: 120,
-      image: "../assets/images/car-ford-2-removebg-preview.png",
-    },
-    {
-      id: 203,
-      name: "ماسحات زجاج",
-      price: 95,
-      image: "../assets/images/car-ford-2-removebg-preview.png",
-    },
-    {
-      id: 204,
-      name: "لمبات LED",
-      price: 150,
-      image: "../assets/images/car-ford-2-removebg-preview.png",
-    },
-  ];
+          localStorage.setItem("favorites", JSON.stringify(newProducts));
+          localStorage.setItem("favoriteBundles", JSON.stringify(newBundles));
 
-  recentlyGrid.innerHTML = recentlyViewed
-    .map(
-      (product) => `
-        <div class="recommended-card">
-            <div class="recommended-image">
-                <img src="${product.image}" alt="${product.name}" 
-                     onerror="this.src='https://via.placeholder.com/250x150/333333/ffffff?text=${encodeURIComponent(product.name)}'">
-            </div>
-            <div class="recommended-content">
-                <h4>${product.name}</h4>
-                <div class="recommended-price">${product.price} جنيه</div>
-                <button class="recommended-btn" onclick="addToCart(${product.id})">
-                    <i class="fas fa-cart-plus"></i> أضف للسلة
-                </button>
-            </div>
-        </div>
-    `,
-    )
-    .join("");
-}
+          loadFavorites();
+          showNotification("تمت الإزالة من المفضلة", "info");
+        };
 
-// Remove from favorites
-function removeFromFavorites(productId) {
-  const index = favoriteProducts.findIndex((p) => p.id === productId);
+        window.addFavToCart = function (productId) {
+          let product = favoriteProducts.find((p) => p.id === productId);
+          if (!product) return;
 
-  if (index !== -1) {
-    favoriteProducts.splice(index, 1);
-    localStorage.setItem("favorites", JSON.stringify(favoriteProducts));
+          const price =
+            product.price || product.currentPrice || product.bundlePrice || 0;
+          const image = product.image || product.img || "";
 
-    // Update UI
-    const productCard = document.querySelector(
-      `.fav-card[data-product-id="${productId}"]`,
-    );
-    if (productCard) {
-      productCard.style.animation = "slideOut 0.3s ease";
-      setTimeout(() => {
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          const exist = cart.find((i) => i.id === productId);
+          if (exist) {
+            exist.quantity = (exist.quantity || 1) + 1;
+          } else {
+            cart.push({
+              id: product.id,
+              name: product.name,
+              price: price,
+              quantity: 1,
+              image: image,
+              type: product.type || "product",
+            });
+          }
+          localStorage.setItem("cart", JSON.stringify(cart));
+          updateAllCounts();
+          showNotification("تمت الإضافة إلى السلة", "success");
+        };
+
+        window.viewProd = function (id) {
+          // Check if it's a product or bundle
+          const item = favoriteProducts.find((p) => p.id === id);
+          if (item && item.type === "bundle") {
+            window.location.href = `offer-details.html?id=${id}`;
+          } else {
+            window.location.href = `product-details.html?id=${id}`;
+          }
+        };
+
+        window.clearAllFav = function () {
+          if (favoriteProducts.length === 0) return;
+          if (confirm("هل أنت متأكد من رغبتك في تفريغ قائمة المفضلة؟")) {
+            localStorage.setItem("favorites", JSON.stringify([]));
+            localStorage.setItem("favoriteBundles", JSON.stringify([]));
+            loadFavorites();
+            showNotification("تم تفريغ المفضلة بنجاح", "success");
+          }
+        };
+
+        window.addAllToCart = function () {
+          if (favoriteProducts.length === 0) {
+            showNotification("قائمة المفضلة فارغة", "error");
+            return;
+          }
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          favoriteProducts.forEach((p) => {
+            const price = p.price || p.currentPrice || p.bundlePrice || 0;
+            const image = p.image || p.img || "";
+            const exist = cart.find((i) => i.id === p.id);
+            if (exist) {
+              exist.quantity = (exist.quantity || 1) + 1;
+            } else {
+              cart.push({
+                id: p.id,
+                name: p.name,
+                price: price,
+                quantity: 1,
+                image: image,
+                type: p.type || "product",
+              });
+            }
+          });
+          localStorage.setItem("cart", JSON.stringify(cart));
+          updateAllCounts();
+          showNotification("تمت إضافة جميع المنتجات إلى السلة", "success");
+        };
+
+        if (clearBtn) clearBtn.addEventListener("click", clearAllFav);
+        if (addAllBtn) addAllBtn.addEventListener("click", addAllToCart);
+
+        document
+          .querySelector(".mobile-menu-btn")
+          ?.addEventListener("click", function () {
+            document.querySelector(".nav-links")?.classList.toggle("active");
+          });
+
+        document
+          .querySelectorAll(".current-year")
+          .forEach((el) => (el.textContent = new Date().getFullYear()));
+
         loadFavorites();
-        showNotification("تمت إزالة المنتج من المفضلة", "info");
-      }, 300);
-    } else {
-      loadFavorites();
-    }
-
-    // Update favorite count in header
-    updateFavoriteCount();
-  }
-}
-
-// Clear all favorites
-function clearFavorites() {
-  if (favoriteProducts.length === 0) {
-    showNotification("المفضلة فارغة بالفعل", "info");
-    return;
-  }
-
-  if (confirm("هل أنت متأكد من تفريغ المفضلة؟")) {
-    favoriteProducts = [];
-    localStorage.setItem("favorites", JSON.stringify(favoriteProducts));
-    loadFavorites();
-    updateFavoriteCount();
-    showNotification("تم تفريغ المفضلة", "success");
-  }
-}
-
-// Add all favorites to cart
-function addAllToCart() {
-  if (favoriteProducts.length === 0) {
-    showNotification("المفضلة فارغة", "error");
-    return;
-  }
-
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  favoriteProducts.forEach((product) => {
-    const existingItem = cart.find((item) => item.id === product.id);
-
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      cart.push({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        quantity: 1,
-        image: product.image,
-      });
-    }
-  });
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-  showNotification("تمت إضافة جميع المنتجات إلى السلة", "success");
-}
-
-// Add to cart function
-function addToCart(productId) {
-  // Find product in favorites or sample data
-  let product = favoriteProducts.find((p) => p.id === productId);
-
-  // If not found in favorites, try sample data
-  if (!product) {
-    const sampleProducts = [
-      {
-        id: 101,
-        name: "فلتر زيت",
-        price: 120,
-        image: "../assets/images/car-ford-2-removebg-preview.png",
-      },
-      {
-        id: 102,
-        name: "بواجي شرارة",
-        price: 180,
-        image: "../assets/images/car-ford-2-removebg-preview.png",
-      },
-      {
-        id: 103,
-        name: "ماسحات زجاج",
-        price: 220,
-        image: "../assets/images/car-ford-2-removebg-preview.png",
-      },
-      {
-        id: 104,
-        name: "لمبات LED",
-        price: 350,
-        image: "../assets/images/car-ford-2-removebg-preview.png",
-      },
-      {
-        id: 201,
-        name: "فلتر زيت محرك",
-        price: 85,
-        image: "../assets/images/car-ford-2-removebg-preview.png",
-      },
-      {
-        id: 202,
-        name: "بواجي شرارة",
-        price: 120,
-        image: "../assets/images/car-ford-2-removebg-preview.png",
-      },
-      {
-        id: 203,
-        name: "ماسحات زجاج",
-        price: 95,
-        image: "../assets/images/car-ford-2-removebg-preview.png",
-      },
-      {
-        id: 204,
-        name: "لمبات LED",
-        price: 150,
-        image: "../assets/images/car-ford-2-removebg-preview.png",
-      },
-    ];
-    product = sampleProducts.find((p) => p.id === productId);
-  }
-
-  if (!product) return;
-
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const existingItem = cart.find((item) => item.id === productId);
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      quantity: 1,
-      image: product.image,
-    });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-  showNotification("تمت إضافة المنتج إلى السلة", "success");
-}
-
-// View product details
-function viewProduct(productId) {
-  window.location.href = `product-details.html?id=${productId}`;
-}
-
-// Update cart count
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const cartCountElements = document.querySelectorAll(".cart-count");
-  cartCountElements.forEach((element) => {
-    element.textContent = cartCount;
-  });
-}
-
-// Update favorite count
-function updateFavoriteCount() {
-  const favoriteCount = favoriteProducts.length;
-  const favoriteCountElements = document.querySelectorAll(".favorite-count");
-  favoriteCountElements.forEach((element) => {
-    element.textContent = favoriteCount;
-  });
-}
-
-// Update current year
-function updateYear() {
-  const yearElements = document.querySelectorAll(".current-year");
-  const currentYear = new Date().getFullYear();
-  yearElements.forEach((el) => {
-    el.textContent = currentYear;
-  });
-}
-
-// Setup event listeners
-function setupEventListeners() {
-  // Clear favorites button
-  const clearBtn = document.getElementById("clearFavoritesBtn");
-  if (clearBtn) {
-    clearBtn.addEventListener("click", clearFavorites);
-  }
-
-  // Add all to cart button
-  const addAllBtn = document.getElementById("addAllToCartBtn");
-  if (addAllBtn) {
-    addAllBtn.addEventListener("click", addAllToCart);
-  }
-}
-
-// Show notification
-function showNotification(message, type = "info") {
-  // Remove existing notification
-  const existingNotification = document.querySelector(".notification");
-  if (existingNotification) {
-    existingNotification.remove();
-  }
-
-  const notification = document.createElement("div");
-  notification.className = `notification ${type}`;
-
-  let icon = "fa-info-circle";
-  if (type === "success") icon = "fa-check-circle";
-  if (type === "error") icon = "fa-exclamation-circle";
-
-  notification.innerHTML = `
-        <i class="fas ${icon}"></i>
-        <span>${message}</span>
-    `;
-
-  notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        background-color: ${type === "success" ? "#d4edda" : type === "error" ? "#f8d7da" : "#333"};
-        color: ${type === "success" ? "#155724" : type === "error" ? "#721c24" : "#fff"};
-        padding: 15px 25px;
-        border-radius: 4px;
-        z-index: 10000;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        animation: slideIn 0.3s ease;
-        font-family: inherit;
-        font-size: 0.95rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        direction: rtl;
-    `;
-
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
-    notification.style.animation = "slideOut 0.3s ease";
-    setTimeout(() => notification.remove(), 300);
-  }, 3000);
-}
-
-// Setup mobile menu
-function setupMobileMenu() {
-  const menuBtn = document.querySelector(".mobile-menu-btn");
-  const navLinks = document.querySelector(".nav-links");
-
-  if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-    });
-  }
-
-  document.addEventListener("click", (e) => {
-    if (
-      !e.target.closest(".navbar") &&
-      navLinks &&
-      navLinks.classList.contains("active")
-    ) {
-      navLinks.classList.remove("active");
-    }
-  });
-}
-
-// Add styles if not exists
-if (!document.querySelector("#fav-styles")) {
-  const style = document.createElement("style");
-  style.id = "fav-styles";
-  style.textContent = `
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideOut {
-            from {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-        }
-        
-        .notification {
-            direction: rtl;
-        }
-        
-        .favorites-header .favorites-title span {
-            color: var(--danger-color);
-            margin: 0 5px;
-        }
-    `;
-  document.head.appendChild(style);
-}
+      

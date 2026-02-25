@@ -276,10 +276,12 @@ function setupPaymentMethods() {
         return;
     }
     
-    // Set cash as default checked
-    const cashOption = document.querySelector('input[value="cash"]');
-    if (cashOption) {
-        cashOption.checked = true;
+    // Set instapay as default checked
+    const instapayOption = document.querySelector('input[value="instapay"]');
+    if (instapayOption) {
+        instapayOption.checked = true;
+        // Also trigger change event to show instapay details
+        instapayOption.dispatchEvent(new Event('change'));
     }
     
     paymentOptions.forEach(option => {

@@ -129,9 +129,9 @@ body {
   letter-spacing: 1px;
 }
 .logo-img {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
+  height: 70px;
+  width: 120px;
+  object-fit: cover;
   display: block;
 }
 .nav-links {

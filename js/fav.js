@@ -37,60 +37,6 @@
             setTimeout(() => notif.remove(), 300);
           }, 3000);
         }
-
-        // Sample data if empty (for attractive preview)
-        if (favoriteProducts.length === 0) {
-          favoriteProducts = [
-            {
-              id: 101,
-              name: "فلتر زيت محرك",
-              price: 120,
-              oldPrice: 150,
-              image:
-                "https://via.placeholder.com/300x200/000000/ffffff?text=فلتر+زيت",
-              categoryName: "فلتر",
-              inStock: true,
-              rating: 4.5,
-              reviews: 23,
-            },
-            {
-              id: 102,
-              name: "بواجي شرارة (4 حبات)",
-              price: 180,
-              image:
-                "https://via.placeholder.com/300x200/333333/ffffff?text=بواجي",
-              categoryName: "كهرباء",
-              inStock: true,
-              rating: 4.8,
-              reviews: 45,
-            },
-            {
-              id: 103,
-              name: "ماسحات زجاج أمامي",
-              price: 220,
-              oldPrice: 270,
-              image:
-                "https://via.placeholder.com/300x200/111111/ffffff?text=ماسحات",
-              categoryName: "اكسسوارات",
-              inStock: false,
-              rating: 4.2,
-              reviews: 12,
-            },
-            {
-              id: 104,
-              name: "لمبات LED أمامية",
-              price: 350,
-              image:
-                "https://via.placeholder.com/300x200/222222/ffffff?text=LED",
-              categoryName: "إضاءة",
-              inStock: true,
-              rating: 5.0,
-              reviews: 8,
-            },
-          ];
-          localStorage.setItem("favorites", JSON.stringify(favoriteProducts));
-        }
-
         function loadFavorites() {
           const products = JSON.parse(localStorage.getItem("favorites")) || [];
           const bundles = JSON.parse(localStorage.getItem("favoriteBundles")) || [];

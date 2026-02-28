@@ -64,7 +64,7 @@ function loadFavorites() {
                     <div class="fav-card" data-product-id="${p.id}">
                         <div class="fav-card-badge">${category}</div>
                         <div class="fav-card-image">
-                            <img src="${image.startsWith("../") ? image : `../${image}`} " alt="${p.name}" onerror="this.src='https://via.placeholder.com/300x200/cccccc/000000?text=MotorFix'">
+                            <img src="${image.startsWith("../") ? image : `../${image}`}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/300x200/cccccc/000000?text=MotorFix'">
                             <div class="fav-card-actions">
                                 <button class="fav-action-btn remove" onclick="removeFav(${p.id})" data-tooltip="إزالة"><i class="fas fa-trash-alt"></i></button>
                                 <button class="fav-action-btn cart" onclick="addFavToCart(${p.id})" data-tooltip="أضف للسلة"><i class="fas fa-shopping-cart"></i></button>
